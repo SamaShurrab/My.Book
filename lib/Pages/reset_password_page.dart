@@ -231,34 +231,30 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                         newPasswordController.text;
                                     String confirmPassword =
                                         confirmPasswordController.text;
+
+                                    if (formKey.currentState == null ||
+                                        !formKey.currentState!.validate()) {
+                                      return;
+                                      // To show dialog when the operation is successful
+                                    }
                                     if (newPassowrd == confirmPassword) {
-                                      setState(() {
-                                        if (formKey.currentState != null &&
-                                            formKey.currentState!.validate()) {
-                                          formKey.currentState!.save();
+                                      showDialog(
+                                          barrierDismissible: true,
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            // The dialog will move after 5 seconds to the signin page.
+                                            Timer(const Duration(seconds: 4),
+                                                () {
+                                              //To close the dialog
+                                              Navigator.pop(dialogContext);
 
-                                          // To show dialog when the operation is successful
-                                          showDialog(
-                                              barrierDismissible: true,
-                                              context: context,
-                                              builder: (dialogContext) {
-                                                // The dialog will move after 5 seconds to the signin page.
-                                                Timer(
-                                                    const Duration(seconds: 4),
-                                                    () {
-                                                  //To close the dialog
-                                                  Navigator.pop(dialogContext);
+                                              // After closing the dialog, you will be taken directly to the signin page.
+                                              Navigator.pushReplacementNamed(
+                                                  context, "signin");
+                                            });
 
-                                                  // After closing the dialog, you will be taken directly to the signin page.
-                                                  Navigator
-                                                      .pushReplacementNamed(
-                                                          context, "signin");
-                                                });
-
-                                                return CustomSuccessfulDialog();
-                                              });
-                                        }
-                                      });
+                                            return CustomSuccessfulDialog();
+                                          });
                                     } else {
                                       if (!mounted) return;
                                       // ignore: use_build_context_synchronously
