@@ -233,10 +233,10 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                         confirmPasswordController.text;
 
                                     if (formKey.currentState == null ||
-                                        !formKey.currentState!.validate()) {
+                                        formKey.currentState!.validate()) {
                                       return;
-                                      // To show dialog when the operation is successful
                                     }
+                                    // To show dialog when the operation is successful
                                     if (newPassowrd == confirmPassword) {
                                       showDialog(
                                           barrierDismissible: true,
