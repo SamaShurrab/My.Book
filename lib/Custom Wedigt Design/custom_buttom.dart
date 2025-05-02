@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
 import 'package:my_book_app/Values/string.dart';
 
+// This class is for button design.
 class CustomButton extends StatelessWidget {
   final String? routeName;
   final String buttonName;
@@ -64,16 +65,20 @@ class CustomButton extends StatelessWidget {
                 return;
               }
 
+              // When you press the logout button, you will exit the application.
               if (routeName == "logout") {
-                SystemNavigator.pop(); // خروج من التطبيق
+                SystemNavigator.pop(); 
+                
               } else if (routeName == "register" || routeName == "signin") {
                 Navigator.of(context).pushReplacementNamed(routeName!);
+
+                // If the "next" button is pressed, the code checks the value of itemsSlected before navigating or showing an alert message.
               } else if (buttonName == AppStrings.next) {
                 if (itemsSlected == null || itemsSlected! < 3) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: CustomText(
-                        textData: textData!,
+                        text: textData!,
                         textAlign: textAlignSnack!,
                         fontSize: fontSizeSnack!,
                         textColor: textColorSnack!,

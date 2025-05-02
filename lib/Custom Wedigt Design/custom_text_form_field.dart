@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'package:my_book_app/Values/string.dart';
 
+// This class is used to design the TextFormField.
 class CustomTextFormField extends StatefulWidget {
   final TextInputType textInputType;
   final bool obscureText;
@@ -93,61 +94,55 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
     and each field has its own error message.If there is no error,no message will appear.
   */
   String? validator(String value) {
+    // To check whether the value entered by the user in each field is empty or not
     if (value.isEmpty) {
-      if (widget.hintText == "Username") {
-        return AppStrings.userNameEmpty;
-      } else if (widget.hintText == "Password" ||
-          widget.hintText == "New password" ||
-          widget.hintText == "Confirm password") {
-        return AppStrings.passwordEmpty;
-      } else if (widget.hintText == "Email Address") {
-        return AppStrings.emailAddressEmpty;
-      } else if (widget.hintText == "Phone Number") {
-        return AppStrings.phoneNumberEmpty;
-      } else if (widget.hintText == "*") {
-        return "";
-      } else if (widget.hintText == "Write Here.....") {
-        return AppStrings.emptyField;
-      }
+      switch (widget.hintText) {
+        case "Username":
+          return AppStrings.userNameEmpty;
+        case "Password":
+        case "New password":
+        case "Confirm password":
+          return AppStrings.passwordEmpty;
+        case "Email Address":
+          return AppStrings.emailAddressEmpty;
+        case "Phone Number":
+          return AppStrings.phoneNumberEmpty;
+        case "*":
+          return "";
+        default:
+          return AppStrings.emptyField;
+      } // switch()
     } else {
-      if (widget.hintText == "Username") {
-        if (!nameRegex.hasMatch(value)) {
-          return AppStrings.userNameRegx;
-        }
-      } else if (widget.hintText == "Password" ||
-          widget.hintText == "New password" ||
-          widget.hintText == "Confirm password") {
-        if (!passwordRegex.hasMatch(value)) {
-          return AppStrings.passwordRegx;
-        }
-      } else if (widget.hintText == "Email Address") {
-        if (!emailRegex.hasMatch(value)) {
-          return AppStrings.emailAddressRegx;
-        }
-      } else if (widget.hintText == "Phone Number") {
-        if (!phoneRegex.hasMatch(value)) {
-          return AppStrings.phoneNumberRegx;
-        }
-      }
-    }
-    return null;
+      //To check whether the value entered by the user in each field matches the required conditions.
+      if (widget.hintText == "Username" && !nameRegex.hasMatch(value)) {
+        return AppStrings.userNameRegx;
+      } //if()
+
+      if (["Password", "New password", "Confirm password"]
+              .contains(widget.hintText) &&
+          !passwordRegex.hasMatch(value)) {
+        return AppStrings.passwordRegx;
+      } //if()
+
+      if (widget.hintText == "Email Address" && !emailRegex.hasMatch(value)) {
+        return AppStrings.emailAddressRegx;
+      } //if()
+
+      if (widget.hintText == "Phone Number" && !phoneRegex.hasMatch(value)) {
+        return AppStrings.phoneNumberRegx;
+      } //if()
+      return null;
+    } // validator()
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       maxLines: widget.maxLines ?? 1,
-      /*
-        This function if the entered value is 1 will automatically move to the next field,
-        and upon deletion it will automatically return to the previous field
-      */
+      //This function if the entered value is 1 will automatically move to the next field,
       onChanged: (value) {
         if (value.length == widget.maxLength) {
           FocusScope.of(context).nextFocus();
-          return;
-        }
-        if (value.isEmpty) {
-          FocusScope.of(context).previousFocus();
           return;
         }
       },
@@ -222,5 +217,5 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
                                 ))),
           suffixIconColor: widget.suffixIconColor),
     );
-  }
-}//CustomTextFormFieldState class
+  } //build()
+} //CustomTextFormFieldState class

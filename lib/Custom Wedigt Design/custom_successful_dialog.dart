@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/custom_image_asset.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/asset_image_widget.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
 import 'package:my_book_app/Values/string.dart';
 
-class CustomSuccessfulDialog extends StatefulWidget {
-  const CustomSuccessfulDialog({super.key});
-  @override
-  State<StatefulWidget> createState() {
-    return CustomSuccessfulDialogState();
-  } //createState()
-} //CustomSuccessfulDialog class
+// This class is used to design a dialog in case of successful password change.
 
-class CustomSuccessfulDialogState extends State<CustomSuccessfulDialog> {
+class CustomSuccessfulDialog extends StatelessWidget {
+  const CustomSuccessfulDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -25,10 +21,10 @@ class CustomSuccessfulDialogState extends State<CustomSuccessfulDialog> {
           ),
           SizedBox(
               height: ScreenUtil().setHeight(200),
-              child: CustomImage(imagePath: "images/successful.png")),
+              child: AssetImageWidget(imagePath: "images/successful.png")),
           SizedBox(height: ScreenUtil().setHeight(20)),
           CustomText(
-              textData: AppStrings.congratulations,
+              text: AppStrings.congratulations,
               textAlign: TextAlign.center,
               fontSize: 16,
               textColor: Colors.black,
@@ -40,7 +36,7 @@ class CustomSuccessfulDialogState extends State<CustomSuccessfulDialog> {
             padding:
                 EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10)),
             child: CustomText(
-                textData: AppStrings.successfulMesaage,
+                text: AppStrings.successfulMesaage,
                 textAlign: TextAlign.center,
                 fontSize: 12,
                 textColor: Colors.black,
@@ -53,4 +49,4 @@ class CustomSuccessfulDialogState extends State<CustomSuccessfulDialog> {
       ),
     );
   } //build()
-} //CustomSuccessfulDialogState class
+} //CustomSuccessfulDialog class

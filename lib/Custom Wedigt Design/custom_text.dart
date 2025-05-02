@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// This class is for designing text to suit each interface.
 class CustomText extends StatelessWidget {
-  final String textData;
+  final String text;
   final TextAlign textAlign;
   final double fontSize;
   final Color textColor;
@@ -10,7 +11,7 @@ class CustomText extends StatelessWidget {
   final FontWeight fontWeight;
   const CustomText(
       {super.key,
-      required this.textData,
+      required this.text,
       this.height,
       required this.textAlign,
       required this.fontSize,
@@ -19,7 +20,7 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      textData,
+      text,
       textAlign: textAlign,
       style: TextStyle(
         height: height,

@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_top.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_successful_dialog.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text_form_field.dart';
-import '../Custom Wedigt Design/custom_buttom_form.dart';
+import '../Custom Wedigt Design/form_submit_button.dart';
 import '../Custom Wedigt Design/custom_image_svg.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Values/colors.dart';
@@ -48,16 +49,12 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
   Widget build(BuildContext context) {
     // This widget has been used to change the status of the statusBar icons to light only for this interface and not for all interfaces.
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light,
-      ),
-      // This widget is used to make the upper edges of a circular screen.
-      child: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(ScreenUtil().radius(20)),
-          topRight: Radius.circular(ScreenUtil().radius(20)),
+        value: SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
         ),
-        child: Scaffold(
+        // This widget is used to make the upper edges of a circular screen.
+        child: CustomClipRRectTop(
+            child: Scaffold(
           backgroundColor: AppColors.tahitiGold,
           body: Column(
             children: [
@@ -87,7 +84,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                       physics: BouncingScrollPhysics(),
                       children: [
                         CustomText(
-                            textData: AppStrings.resetPassword,
+                            text: AppStrings.resetPassword,
                             textAlign: TextAlign.start,
                             fontSize: 16,
                             textColor: Colors.black,
@@ -96,7 +93,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                           height: ScreenUtil().setHeight(8),
                         ),
                         CustomText(
-                            textData: AppStrings.resetPasswordDescription,
+                            text: AppStrings.resetPasswordDescription,
                             textAlign: TextAlign.start,
                             fontSize: 12,
                             textColor: Colors.black,
@@ -213,7 +210,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                               ),
                               if (newPasswordController.text.trim() ==
                                   confirmPasswordController.text.trim())
-                                CustomButtonForm(
+                                FormSubmitButton(
                                   formKey: formKey,
                                   /*
                                   This function checks whether the two passwords are similar or not. 
@@ -250,7 +247,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
 
                                               // After closing the dialog, you will be taken directly to the signin page.
                                               Navigator.pushReplacementNamed(
-                                                  context, "signin");
+                                                  context, "chooseInterest");
                                             });
 
                                             return CustomSuccessfulDialog();
@@ -261,7 +258,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(SnackBar(
                                         content: CustomText(
-                                            textData: AppStrings.notSimialr,
+                                            text: AppStrings.notSimialr,
                                             textAlign: TextAlign.start,
                                             fontSize: 13,
                                             textColor: Colors.white,
@@ -295,8 +292,6 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                   ))
             ],
           ),
-        ),
-      ),
-    );
+        )));
   } //build()
 }//ResetPasswordPageState()

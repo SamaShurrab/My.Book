@@ -1,10 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_buttom.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/custom_buttom_form.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/form_submit_button.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text_form_field.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Values/colors.dart';
@@ -24,6 +23,7 @@ class EditProfilePageState extends State<EditProfilePage> {
 
   File? imagePath;
 
+// this function to use pick image from camera
   Future<void> _pickImageFromCamera() async {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.camera);
@@ -34,6 +34,7 @@ class EditProfilePageState extends State<EditProfilePage> {
     } //if()
   } //_pickImageFromCamera()
 
+// this function to use pick image from gallery
   Future<void> _pickImageFromGallery() async {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -52,7 +53,7 @@ class EditProfilePageState extends State<EditProfilePage> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: CustomText(
-            textData: AppStrings.editProfile,
+            text: AppStrings.editProfile,
             textAlign: TextAlign.start,
             fontSize: 16,
             textColor: Colors.black,
@@ -118,7 +119,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomText(
-                                  textData: AppStrings.choose,
+                                  text: AppStrings.choose,
                                   textAlign: TextAlign.start,
                                   fontSize: 16,
                                   textColor: Colors.black,
@@ -154,7 +155,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                                       height: ScreenUtil().setHeight(10),
                                     ),
                                     CustomText(
-                                        textData: AppStrings.camera,
+                                        text: AppStrings.camera,
                                         textAlign: TextAlign.center,
                                         fontSize: 14,
                                         textColor: Colors.black,
@@ -182,7 +183,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                                       height: ScreenUtil().setHeight(10),
                                     ),
                                     CustomText(
-                                        textData: AppStrings.gallery,
+                                        text: AppStrings.gallery,
                                         textAlign: TextAlign.center,
                                         fontSize: 14,
                                         textColor: Colors.black,
@@ -197,7 +198,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                     });
               },
               child: CustomText(
-                  textData: AppStrings.changePicture,
+                  text: AppStrings.changePicture,
                   textAlign: TextAlign.center,
                   fontSize: 12,
                   textColor: Colors.black,
@@ -265,7 +266,6 @@ class EditProfilePageState extends State<EditProfilePage> {
                   CustomTextFormField(
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.start,
-                    // controller: emailController,
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     textColor: Colors.black,
@@ -363,7 +363,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                   SizedBox(
                     height: ScreenUtil().setHeight(50),
                   ),
-                  CustomButtonForm(
+                  FormSubmitButton(
                     onPressed: () {
                       setState(() {
                         if (formKey.currentState != null &&

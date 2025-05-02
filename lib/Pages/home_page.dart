@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/dialog_confirm_logout_from_app.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/logout_dialog.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'package:my_book_app/Values/string.dart';
-import '../Custom Wedigt Design/custom_image_asset.dart';
+import '../Custom Wedigt Design/asset_image_widget.dart';
 import 'audio_books_page.dart';
 import 'books_page.dart';
 import 'profile_page.dart';
@@ -20,16 +20,10 @@ import 'wishlist_page.dart';
 Route createRouteHome(Widget destination) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) {
-      return ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(ScreenUtil().radius(20)),
-          bottomRight: Radius.circular(ScreenUtil().radius(20)),
-        ),
-        child: destination,
-      );
+      return CustomClipRRectBottom(child: destination);
     },
   );
-}
+} //createRouteHome()
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,6 +34,8 @@ class HomePage extends StatefulWidget {
 } //HomePage class
 
 class HomePageState extends State<HomePage> {
+  int currentIndex = 2;
+
   final GlobalKey<BookInformationState> booksListKey =
       GlobalKey<BookInformationState>();
 
@@ -61,28 +57,12 @@ class HomePageState extends State<HomePage> {
     {"iconName": Icons.logout, "topicName": AppStrings.logout}
   ];
 
-  // Future Search() {
-  //   if (booksListKey.currentState != null) {
-  //     List bookList = booksListKey.currentState!.book;
-  //      showSearch(context: context, delegate: MySearch(books: bookList));
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, result) async {
-        bool? confirm = await DialogConfirmLogoutFromApp.show(context);
-        if (confirm == true) {
-          SystemNavigator.pop();
-        }
-      },
-      child: ClipRRect(
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(ScreenUtil().radius(20)),
-            bottomRight: Radius.circular(ScreenUtil().radius(20))),
-        child: Scaffold(
+        canPop: false,
+        child: CustomClipRRectBottom(
+            child: Scaffold(
           backgroundColor: Colors.white,
           drawer: Drawer(
             backgroundColor: Colors.white,
@@ -119,7 +99,7 @@ class HomePageState extends State<HomePage> {
                         height: ScreenUtil().setHeight(10),
                       ),
                       CustomText(
-                          textData: "Sama Shurrab",
+                          text: "Sama Shurrab",
                           textAlign: TextAlign.center,
                           fontSize: 15,
                           textColor: Colors.white,
@@ -128,7 +108,7 @@ class HomePageState extends State<HomePage> {
                         height: ScreenUtil().setHeight(5),
                       ),
                       CustomText(
-                          textData: "smshorap@gmail.com",
+                          text: "smshorap@gmail.com",
                           textAlign: TextAlign.center,
                           fontSize: 15,
                           textColor: Colors.white,
@@ -188,7 +168,7 @@ class HomePageState extends State<HomePage> {
                                     width: ScreenUtil().setWidth(10),
                                   ),
                                   CustomText(
-                                      textData: drawerList[index]["topicName"],
+                                      text: drawerList[index]["topicName"],
                                       textAlign: TextAlign.start,
                                       fontSize: 15,
                                       textColor: Colors.black,
@@ -217,19 +197,24 @@ class HomePageState extends State<HomePage> {
             ],
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.grey[100],
-            onTap: (value) {
-              if (value == 0) {
+
+            // To move between interfaces through bottomNavigationBar
+            onTap: (index) {
+              setState(() {
+                currentIndex = index;
+              });
+              if (index == 0) {
                 Navigator.of(context).pushAndRemoveUntil(
                   createRouteHome(BooksPage()),
                   (route) => false,
                 );
-              } else if (value == 1) {
+              } else if (index == 1) {
                 Navigator.of(context).pushAndRemoveUntil(
                     createRouteHome(WishlistPage()), (route) => false);
-              } else if (value == 3) {
+              } else if (index == 3) {
                 Navigator.of(context).pushAndRemoveUntil(
                     createRouteHome(AudioBooksPage()), (route) => false);
-              } else if (value == 4) {
+              } else if (index == 4) {
                 Navigator.of(context).pushAndRemoveUntil(
                     createRouteHome(ProfilePage()), (route) => false);
               }
@@ -244,7 +229,6 @@ class HomePageState extends State<HomePage> {
           ),
           body: CustomScrollView(
             slivers: [
-              // SliverAppBar
               SliverAppBar(
                 flexibleSpace: Container(
                   decoration: BoxDecoration(
@@ -261,9 +245,7 @@ class HomePageState extends State<HomePage> {
                 actions: [
                   InkWell(
                       splashColor: Colors.transparent,
-                      onTap: () {
-                        // showSearch(context: context, delegate: booksListKey.currentState != null);
-                      },
+                      onTap: () {},
                       child: Icon(Icons.search)),
                   SizedBox(
                     width: ScreenUtil().setWidth(10),
@@ -279,7 +261,7 @@ class HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              // SliverList لعرض محتوى الصفحة
+              // SliverList to display page content
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
@@ -288,7 +270,7 @@ class HomePageState extends State<HomePage> {
                             padding: EdgeInsets.only(
                                 left: ScreenUtil().setWidth(15)),
                             child: CustomText(
-                                textData: AppStrings.home,
+                                text: AppStrings.home,
                                 textAlign: TextAlign.start,
                                 fontSize: 15,
                                 textColor: Colors.black,
@@ -317,7 +299,7 @@ class HomePageState extends State<HomePage> {
                                               top: ScreenUtil().setHeight(20),
                                             ),
                                             child: CustomText(
-                                                textData: AppStrings
+                                                text: AppStrings
                                                     .homePageDescription1,
                                                 textAlign: TextAlign.start,
                                                 fontSize: 13,
@@ -333,7 +315,7 @@ class HomePageState extends State<HomePage> {
                                                 right:
                                                     ScreenUtil().setWidth(5)),
                                             child: CustomText(
-                                                textData: AppStrings
+                                                text: AppStrings
                                                     .homePageDescription2,
                                                 textAlign: TextAlign.start,
                                                 fontSize: 11,
@@ -348,7 +330,7 @@ class HomePageState extends State<HomePage> {
                                       height: ScreenUtil().setHeight(155),
                                       right: 15,
                                       top: 13,
-                                      child: CustomImage(
+                                      child: AssetImageWidget(
                                         imagePath: "images/home_page_img.png",
                                       ),
                                     ),
@@ -371,7 +353,7 @@ class HomePageState extends State<HomePage> {
                                             vertical:
                                                 ScreenUtil().setHeight(10)),
                                         child: CustomText(
-                                            textData: AppStrings.newReleases,
+                                            text: AppStrings.newReleases,
                                             textAlign: TextAlign.start,
                                             fontSize: 15,
                                             textColor: Colors.black,
@@ -394,13 +376,11 @@ class HomePageState extends State<HomePage> {
                                         ),
                                       );
                   },
-                  childCount: 5, // عدد العناصر في القائمة
+                  childCount: 5, // Number of items in the list
                 ),
               ),
             ],
           ),
-        ),
-      ),
-    );
+        )));
   } //build()
 } //HomePage Class()

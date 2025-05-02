@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/custom_image_asset.dart';
+import 'package:my_book_app/Classes/book.dart';
+import 'asset_image_widget.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
 import 'package:my_book_app/Values/colors.dart';
 
+/* 
+  This class expresses a design to display book information such as 
+  the book title, author, and book image based on each interface in which it is called.
+*/
 class BookInformation extends StatefulWidget {
   final GlobalKey? bookKey;
   final Axis scrollDirection;
@@ -32,65 +37,76 @@ class BookInformation extends StatefulWidget {
 } //BookInformation class
 
 class BookInformationState extends State<BookInformation> {
-  List book = [
-    {
-      "bookName": "The Dumond Affair",
-      "bookAuthor": "D.R. Bartlette",
-      "bookImg": "images/The_Dumond_Affair.jpg",
-      "favorite": true
-    },
-    {
-      "bookName": "Long Road To Justice",
-      "bookAuthor": "Bruce Hammack",
-      "bookImg": "images/Long_Road_To_Justice.jpg",
-      "favorite": false
-    },
-    {
-      "bookName": "The Killing Complex",
-      "bookAuthor": "K G Leslie",
-      "bookImg": "images/The_Killing_Complex.jpg",
-      "favorite": true
-    },
-    {
-      "bookName": "The Invisible Man",
-      "bookAuthor": "H. G. Wells",
-      "bookImg": "images/The_Invisible_Man.jpg",
-      "favorite": true
-    },
-    {
-      "bookName": "The Dumond Affair",
-      "bookAuthor": "D.R. Bartlette",
-      "bookImg": "images/The_Dumond_Affair.jpg",
-      "favorite": true
-    },
-    {
-      "bookName": "Long Road To Justice",
-      "bookAuthor": "Bruce Hammack",
-      "bookImg": "images/Long_Road_To_Justice.jpg",
-      "favorite": false
-    },
-    {
-      "bookName": "The Killing Complex",
-      "bookAuthor": "K G Leslie",
-      "bookImg": "images/The_Killing_Complex.jpg",
-      "favorite": true
-    },
-    {
-      "bookName": "The Invisible Man",
-      "bookAuthor": "H. G. Wells",
-      "bookImg": "images/The_Invisible_Man.jpg",
-      "favorite": true
-    }
+  // list to store book data
+  List<Book> bookDetails = [
+    Book(
+        bookTitle: "The Dumond Affair",
+        authorName: "D.R. Bartlette",
+        bookImage: "images/The_Dumond_Affair.jpg",
+        isFavorite: true,
+        isSaved: true),
+    Book(
+        bookTitle: "Long Road To Justice",
+        authorName: "Bruce Hammack",
+        bookImage: "images/Long_Road_To_Justice.jpg",
+        isFavorite: false,
+        isSaved: true),
+    Book(
+        bookTitle: "The Killing Complex",
+        authorName: "K G Leslie",
+        bookImage: "images/The_Killing_Complex.jpg",
+        isFavorite: true,
+        isSaved: false),
+    Book(
+        bookTitle: "The Invisible Man",
+        authorName: "H. G. Wells",
+        bookImage: "images/The_Invisible_Man.jpg",
+        isFavorite: false,
+        isSaved: false),
+    Book(
+        bookTitle: "The Dumond Affair",
+        authorName: "D.R. Bartlette",
+        bookImage: "images/The_Dumond_Affair.jpg",
+        isFavorite: true,
+        isSaved: false),
+    Book(
+        bookTitle: "Long Road To Justice",
+        authorName: "Bruce Hammack",
+        bookImage: "images/Long_Road_To_Justice.jpg",
+        isFavorite: false,
+        isSaved: false),
+    Book(
+        bookTitle: "The Killing Complex",
+        authorName: "K G Leslie",
+        bookImage: "images/The_Killing_Complex.jpg",
+        isFavorite: false,
+        isSaved: true),
+    Book(
+        bookTitle: "The Invisible Man",
+        authorName: "H. G. Wells",
+        bookImage: "images/The_Invisible_Man.jpg",
+        isFavorite: true,
+        isSaved: true),
   ];
 
-  bool isFavorite = false;
+  late List<Book> filteredBook;
+
+  @override
+  void initState() {
+    super.initState();
+    /*
+      Here we filter the list so that each interface will display specific books. 
+      For example, the Favorites interface will display the books that the user liked, 
+      while the books that the user saved will be displayed in the Archives interface, 
+      and in the Book interface all books will be displayed.
+    */
+    filteredBook = widget.pageName == "wishlist"
+        ? bookDetails.where((item) => item.isFavorite == true).toList()
+        : bookDetails;
+  }
 
   @override
   Widget build(BuildContext context) {
-    List displayBooks = widget.pageName == "wishlist"
-        ? book.where((item) => item["favorite"] == true).toList()
-        : book;
-
     return SizedBox(
       width: double.infinity,
       height: ScreenUtil().setHeight(widget.height),
@@ -98,7 +114,7 @@ class BookInformationState extends State<BookInformation> {
         physics: BouncingScrollPhysics(),
         shrinkWrap: widget.shrinkWrap,
         scrollDirection: widget.scrollDirection,
-        itemCount: displayBooks.length,
+        itemCount: filteredBook.length,
         itemBuilder: (context, index) {
           return Column(
             mainAxisSize: MainAxisSize.min,
@@ -108,8 +124,8 @@ class BookInformationState extends State<BookInformation> {
                 onTap: () {},
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(ScreenUtil().radius(15)),
-                  child: CustomImage(
-                    imagePath: displayBooks[index]["bookImg"],
+                  child: AssetImageWidget (
+                    imagePath: filteredBook[index].bookImage,
                     fit: BoxFit.fill,
                     width: 150,
                     height: 210,
@@ -126,7 +142,7 @@ class BookInformationState extends State<BookInformation> {
                   padding: EdgeInsets.symmetric(
                       horizontal: ScreenUtil().setWidth(5)),
                   child: CustomText(
-                      textData: displayBooks[index]["bookName"],
+                      text: filteredBook[index].bookTitle,
                       textAlign: TextAlign.center,
                       fontSize: 11,
                       textColor: Colors.black,
@@ -145,7 +161,7 @@ class BookInformationState extends State<BookInformation> {
                     Expanded(
                       flex: 4,
                       child: CustomText(
-                          textData: displayBooks[index]["bookAuthor"],
+                          text: filteredBook[index].authorName,
                           textAlign: TextAlign.center,
                           fontSize: 11,
                           textColor: AppColors.hintTextColor,
@@ -156,16 +172,32 @@ class BookInformationState extends State<BookInformation> {
                             splashColor: Colors.transparent,
                             onTap: () {
                               setState(() {
-                                displayBooks[index]["favorite"] =
-                                    !displayBooks[index]["favorite"];
+                                // This variable represents the book that the heart icon was clicked on.
+                                final book = filteredBook[index];
+
+                                // This variable represents the index of the book whose data was taken from the filteredBook.
+                                final int bookIndex = bookDetails.indexOf(book);
+
+                                // To modify the value of the isFavorite property each time the user clicks the heart icon in bookDetails.
+                                if (bookIndex != -1) {
+                                  bookDetails[bookIndex].isFavorite =
+                                      !bookDetails[bookIndex].isFavorite;
+                                } //if()
+
+                                // To update the filteredBook after each click on the heart icon for the wishlist page.
+                                if (widget.pageName == "wishlist") {
+                                  filteredBook = bookDetails
+                                      .where((item) => item.isFavorite)
+                                      .toList();
+                                } //if()
                               });
                             },
                             child: Icon(
-                              displayBooks[index]["favorite"]
+                              filteredBook[index].isFavorite
                                   ? Icons.favorite
                                   : Icons.favorite_border,
                               size: 25,
-                              color: displayBooks[index]["favorite"]
+                              color: filteredBook[index].isFavorite
                                   ? Colors.red
                                   : Colors.black,
                             )))

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
+// // This class is for image design (svg).
 class CustomImageSvg extends StatelessWidget {
   final String imagePath;
   final Color? imageColor;

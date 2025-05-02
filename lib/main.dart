@@ -8,6 +8,7 @@ import 'package:my_book_app/Pages/privacy_policy_page.dart';
 import 'package:my_book_app/Pages/profile_page.dart';
 import 'package:my_book_app/Pages/report_bug_page.dart';
 import 'package:my_book_app/Pages/wishlist_page.dart';
+import 'package:my_book_app/Values/colors.dart';
 import 'Pages/home_page.dart';
 import 'Pages/register_page.dart';
 import 'Pages/reset_password_page.dart';
@@ -49,14 +50,22 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: "gilroy",
-          scaffoldBackgroundColor: Colors.white,
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.white,
-            surfaceTintColor: Colors.white,
-            elevation: 0,
-          ),
-        ),
+            fontFamily: "gilroy",
+            scaffoldBackgroundColor: Colors.white,
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.white,
+              surfaceTintColor: Colors.white,
+              elevation: 0,
+            ),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              backgroundColor: Colors.grey[100],
+              type: BottomNavigationBarType.fixed,
+              elevation: 0,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              selectedItemColor: AppColors.tahitiGold,
+              unselectedItemColor: Colors.grey[400],
+            )),
         home: WekcomePage(),
         routes: {
           "home": (context) => HomePage(),

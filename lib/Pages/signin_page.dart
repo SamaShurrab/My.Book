@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_top.dart';
 
-import '../Custom Wedigt Design/custom_buttom_form.dart';
+import '../Custom Wedigt Design/form_submit_button.dart';
 import '../Custom Wedigt Design/custom_image_svg.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Custom Wedigt Design/custom_text_form_field.dart';
@@ -75,252 +76,251 @@ class SigninPageState extends State<SigninPage> {
   Widget build(BuildContext context) {
     // This widget has been used to change the status of the statusBar icons to light only for this interface and not for all interfaces.
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light,
-      ),
-      // This widget is used to make the upper edges of a circular screen.
-      child: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(ScreenUtil().radius(20)),
-          topRight: Radius.circular(ScreenUtil().radius(20)),
+        value: SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
         ),
-        child: Scaffold(
-          backgroundColor: AppColors.tahitiGold,
-          body: Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: CustomImageSvg(
-                      height: 110,
-                      width: 110,
-                      imagePath: 'images/logo.svg',
-                      imageColor: Colors.white),
+        // This widget is used to make the upper edges of a circular screen.
+        child: CustomClipRRectTop(
+            child: PopScope(
+          canPop: false,
+          child: Scaffold(
+            backgroundColor: AppColors.tahitiGold,
+            body: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Padding(
+                    padding: EdgeInsets.all(20),
+                    child: CustomImageSvg(
+                        height: 110,
+                        width: 110,
+                        imagePath: 'images/logo.svg',
+                        imageColor: Colors.white),
+                  ),
                 ),
-              ),
-              Expanded(
-                  flex: 7,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: ScreenUtil().setWidth(20)),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(ScreenUtil().radius(20)),
-                            topLeft: Radius.circular(ScreenUtil().radius(20)))),
-                    child: ListView(
-                      physics: BouncingScrollPhysics(),
-                      children: [
-                        CustomText(
-                            textData: AppStrings.signIn,
-                            textAlign: TextAlign.start,
-                            fontSize: 16,
-                            textColor: Colors.black,
-                            fontWeight: FontWeight.w700),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(8),
-                        ),
-                        CustomText(
-                            textData: AppStrings.signUpPageDescription,
-                            textAlign: TextAlign.start,
-                            fontSize: 12,
-                            textColor: Colors.black,
-                            fontWeight: FontWeight.w500),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(20),
-                        ),
-                        Form(
-                          key: formKey,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              CustomTextFormField(
-                                bottom: 12.0,
-                                textAlignVertical: TextAlignVertical.center,
-                                textAlign: TextAlign.start,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                textColor: Colors.black,
-                                horizontal: 20.0,
-                                vertical: 12.0,
-                                errorEmailMessage: emailErrorMessage,
-                                controller: emailController,
-                                errorFontSize: 11.0,
-                                errorTextColor: Colors.red,
-                                focusedErrorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
-                                errorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
-                                textInputAction: TextInputAction.next,
-                                iconSize: 25.0,
-                                textInputType: TextInputType.emailAddress,
-                                obscureText: false,
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
-                                hintText: AppStrings.emailAddress,
-                                textColorHint: AppColors.hintTextColor,
-                                fontSizeHint: 14.0,
-                                fontWeightHint: FontWeight.w600,
-                                backgroung: AppColors.snow,
-                                suffixIconColor: AppColors.tahitiGold,
-                                suffixIcon: Icons.email_outlined,
-                              ),
-                              SizedBox(
-                                height: ScreenUtil().setHeight(15),
-                              ),
-                              CustomTextFormField(
-                                bottom: 12.0,
-                                textAlignVertical: TextAlignVertical.center,
-                                textAlign: TextAlign.start,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                textColor: Colors.black,
-                                horizontal: 20.0,
-                                vertical: 12.0,
-                                errorFontSize: 11.0,
-                                errorTextColor: Colors.red,
-                                focusedErrorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
-                                errorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
-                                textInputAction: TextInputAction.done,
-                                iconSize: 25.0,
-                                textInputType: TextInputType.number,
-                                obscureText: true,
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                    borderSide: BorderSide(
-                                        color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
-                                hintText: AppStrings.password,
-                                textColorHint: AppColors.hintTextColor,
-                                fontSizeHint: 14.0,
-                                fontWeightHint: FontWeight.w600,
-                                backgroung: AppColors.snow,
-                                suffixIcon: Icons.visibility_off_outlined,
-                                suffixIconColor: AppColors.tahitiGold,
-                              ),
-                              SizedBox(
-                                height: ScreenUtil().setHeight(15),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(
-                                    bottom: ScreenUtil().setWidth(100)),
-                                alignment: Alignment.bottomRight,
-                                child: InkWell(
-                                  onTap: validateEmailForForgetPasswor,
-                                  child: CustomText(
-                                      textData: AppStrings.forgrtPassword,
-                                      textAlign: TextAlign.end,
-                                      fontSize: 11,
-                                      textColor: AppColors.tahitiGold,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                              CustomButtonForm(
-                                formKey: formKey,
-                                onPressed: () {
-                                  setState(() {
-                                    if (formKey.currentState != null &&
-                                        formKey.currentState!.validate()) {
-                                      //Save data upon successful verification
-                                      formKey.currentState!.save();
-                                      Navigator.of(context)
-                                          .pushReplacementNamed(
-                                              "chooseInterest");
-                                    }
-                                  });
-                                },
-                                buttonName: AppStrings.continueBtn,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                textColor: Colors.white,
-                                textAlign: TextAlign.center,
-                                shapeBorder: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      ScreenUtil().radius(30)),
-                                ),
-                                background: AppColors.tahitiGold,
-                                elevation: 0,
-                                width: double.infinity,
-                                height: 40,
-                              ),
-                            ],
+                Expanded(
+                    flex: 7,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: ScreenUtil().setWidth(20)),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topRight:
+                                  Radius.circular(ScreenUtil().radius(20)),
+                              topLeft:
+                                  Radius.circular(ScreenUtil().radius(20)))),
+                      child: ListView(
+                        physics: BouncingScrollPhysics(),
+                        children: [
+                          CustomText(
+                              text: AppStrings.signIn,
+                              textAlign: TextAlign.start,
+                              fontSize: 16,
+                              textColor: Colors.black,
+                              fontWeight: FontWeight.w700),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(8),
                           ),
-                        ),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(20),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CustomText(
-                                textData: AppStrings.newUser,
-                                textAlign: TextAlign.end,
-                                fontSize: 11,
-                                textColor: Colors.black,
-                                fontWeight: FontWeight.w500),
-                            SizedBox(
-                              width: ScreenUtil().setWidth(2),
+                          CustomText(
+                              text: AppStrings.signUpPageDescription,
+                              textAlign: TextAlign.start,
+                              fontSize: 12,
+                              textColor: Colors.black,
+                              fontWeight: FontWeight.w500),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(20),
+                          ),
+                          Form(
+                            key: formKey,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                CustomTextFormField(
+                                  bottom: 12.0,
+                                  textAlignVertical: TextAlignVertical.center,
+                                  textAlign: TextAlign.start,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  textColor: Colors.black,
+                                  horizontal: 20.0,
+                                  vertical: 12.0,
+                                  errorEmailMessage: emailErrorMessage,
+                                  controller: emailController,
+                                  errorFontSize: 11.0,
+                                  errorTextColor: Colors.red,
+                                  focusedErrorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: Colors.red,
+                                          width: ScreenUtil().setWidth(1))),
+                                  errorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: Colors.red,
+                                          width: ScreenUtil().setWidth(1))),
+                                  textInputAction: TextInputAction.next,
+                                  iconSize: 25.0,
+                                  textInputType: TextInputType.emailAddress,
+                                  obscureText: false,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: AppColors.snow,
+                                          width: ScreenUtil().setWidth(1))),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: AppColors.snow,
+                                          width: ScreenUtil().setWidth(1))),
+                                  hintText: AppStrings.emailAddress,
+                                  textColorHint: AppColors.hintTextColor,
+                                  fontSizeHint: 14.0,
+                                  fontWeightHint: FontWeight.w600,
+                                  backgroung: AppColors.snow,
+                                  suffixIconColor: AppColors.tahitiGold,
+                                  suffixIcon: Icons.email_outlined,
+                                ),
+                                SizedBox(
+                                  height: ScreenUtil().setHeight(15),
+                                ),
+                                CustomTextFormField(
+                                  bottom: 12.0,
+                                  textAlignVertical: TextAlignVertical.center,
+                                  textAlign: TextAlign.start,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  textColor: Colors.black,
+                                  horizontal: 20.0,
+                                  vertical: 12.0,
+                                  errorFontSize: 11.0,
+                                  errorTextColor: Colors.red,
+                                  focusedErrorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: Colors.red,
+                                          width: ScreenUtil().setWidth(1))),
+                                  errorBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: Colors.red,
+                                          width: ScreenUtil().setWidth(1))),
+                                  textInputAction: TextInputAction.done,
+                                  iconSize: 25.0,
+                                  textInputType: TextInputType.number,
+                                  obscureText: true,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: AppColors.snow,
+                                          width: ScreenUtil().setWidth(1))),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          ScreenUtil().radius(30)),
+                                      borderSide: BorderSide(
+                                          color: AppColors.snow,
+                                          width: ScreenUtil().setWidth(1))),
+                                  hintText: AppStrings.password,
+                                  textColorHint: AppColors.hintTextColor,
+                                  fontSizeHint: 14.0,
+                                  fontWeightHint: FontWeight.w600,
+                                  backgroung: AppColors.snow,
+                                  suffixIcon: Icons.visibility_off_outlined,
+                                  suffixIconColor: AppColors.tahitiGold,
+                                ),
+                                SizedBox(
+                                  height: ScreenUtil().setHeight(15),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      bottom: ScreenUtil().setWidth(100)),
+                                  alignment: Alignment.bottomRight,
+                                  child: InkWell(
+                                    onTap: validateEmailForForgetPasswor,
+                                    child: CustomText(
+                                        text: AppStrings.forgrtPassword,
+                                        textAlign: TextAlign.end,
+                                        fontSize: 11,
+                                        textColor: AppColors.tahitiGold,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                FormSubmitButton(
+                                  formKey: formKey,
+                                  onPressed: () {
+                                    setState(() {
+                                      if (formKey.currentState != null &&
+                                          formKey.currentState!.validate()) {
+                                        //Save data upon successful verification
+                                        formKey.currentState!.save();
+                                        Navigator.of(context)
+                                            .pushReplacementNamed(
+                                                "chooseInterest");
+                                      }
+                                    });
+                                  },
+                                  buttonName: AppStrings.continueBtn,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  textColor: Colors.white,
+                                  textAlign: TextAlign.center,
+                                  shapeBorder: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        ScreenUtil().radius(30)),
+                                  ),
+                                  background: AppColors.tahitiGold,
+                                  elevation: 0,
+                                  width: double.infinity,
+                                  height: 40,
+                                ),
+                              ],
                             ),
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).pushNamed("register");
-                              },
-                              child: CustomText(
-                                  textData: AppStrings.register,
+                          ),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(20),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomText(
+                                  text: AppStrings.newUser,
                                   textAlign: TextAlign.end,
                                   fontSize: 11,
-                                  textColor: AppColors.tahitiGold,
-                                  fontWeight: FontWeight.w700),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(10),
-                        ),
-                      ],
-                    ),
-                  ))
-            ],
+                                  textColor: Colors.black,
+                                  fontWeight: FontWeight.w500),
+                              SizedBox(
+                                width: ScreenUtil().setWidth(2),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed("register");
+                                },
+                                child: CustomText(
+                                    text: AppStrings.register,
+                                    textAlign: TextAlign.end,
+                                    fontSize: 11,
+                                    textColor: AppColors.tahitiGold,
+                                    fontWeight: FontWeight.w700),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: ScreenUtil().setHeight(10),
+                          ),
+                        ],
+                      ),
+                    ))
+              ],
+            ),
           ),
-        ),
-      ),
-    );
+        )));
   } //build()
 }//SigninPageState class

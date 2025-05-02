@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomButtonForm extends StatefulWidget {
+// This class is for designing the button for the form.
+class FormSubmitButton extends StatefulWidget {
   final GlobalKey<FormState> formKey;
   final String buttonName;
   final double fontSize;
@@ -14,7 +15,7 @@ class CustomButtonForm extends StatefulWidget {
   final double width;
   final double height;
   final VoidCallback? onPressed;
-  const CustomButtonForm(
+  const FormSubmitButton(
       {super.key,
       required this.formKey,
       required this.buttonName,
@@ -30,11 +31,11 @@ class CustomButtonForm extends StatefulWidget {
       this.onPressed});
   @override
   State<StatefulWidget> createState() {
-    return CustomButtonFormState();
+    return FormSubmitButtonState();
   } //createState()
-} //CustomButtonForm class
+} //FormSubmitButton  class
 
-class CustomButtonFormState extends State<CustomButtonForm> {
+class FormSubmitButtonState extends State<FormSubmitButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -44,7 +45,13 @@ class CustomButtonFormState extends State<CustomButtonForm> {
         elevation: widget.elevation,
         color: widget.background,
         shape: widget.shapeBorder,
-        onPressed: widget.onPressed,
+        onPressed: () {
+          if (widget.formKey.currentState!.validate()) {
+            if (widget.onPressed != null) {
+              widget.onPressed!();
+            }
+          }
+        },
         child: Text(
           widget.buttonName,
           textAlign: widget.textAlign,
@@ -56,4 +63,4 @@ class CustomButtonFormState extends State<CustomButtonForm> {
       ),
     );
   } //build()
-}
+} //FormSubmitButtonState class

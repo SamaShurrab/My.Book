@@ -55,7 +55,7 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
       appBar: AppBar(
         centerTitle: true,
         title: CustomText(
-            textData: AppStrings.privacyPolicy,
+            text: AppStrings.privacyPolicy,
             textAlign: TextAlign.start,
             fontSize: 16,
             textColor: Colors.black,
@@ -79,7 +79,7 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
           children: [
             Expanded(
               child: CustomText(
-                  textData: AppStrings.privacyDescription,
+                  text: AppStrings.privacyDescription,
                   textAlign: TextAlign.center,
                   fontSize: 13,
                   textColor: Colors.black,
@@ -91,7 +91,6 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
             Expanded(
               flex: 3,
               child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: privacyList.length,
                   itemBuilder: (context, index) {
@@ -111,7 +110,7 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                                   Expanded(
                                     flex: 5,
                                     child: CustomText(
-                                        textData:
+                                        text:
                                             "${privacyList[index]["privacyTitle"]}",
                                         textAlign: TextAlign.start,
                                         fontSize: 13,
@@ -156,7 +155,7 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                                     horizontal: ScreenUtil().setWidth(10)),
                                 child: CustomText(
                                     height: 1.8,
-                                    textData:
+                                    text:
                                         "${privacyList[index]["privacyDescription"]}",
                                     textAlign: TextAlign.start,
                                     fontSize: 13,

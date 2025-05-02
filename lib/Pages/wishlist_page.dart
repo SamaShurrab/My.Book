@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
 import 'package:my_book_app/Pages/home_page.dart';
 import '../Custom Wedigt Design/custom_text.dart';
-import '../Custom Wedigt Design/dialog_confirm_logout_from_app.dart';
 import '../Values/colors.dart';
 import '../Values/string.dart';
 import 'audio_books_page.dart';
@@ -18,16 +16,10 @@ import 'profile_page.dart';
 Route createRouteWishlist(Widget destination) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) {
-      return ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(ScreenUtil().radius(20)),
-          bottomRight: Radius.circular(ScreenUtil().radius(20)),
-        ),
-        child: destination,
-      );
+      return CustomClipRRectBottom(child: destination);
     },
   );
-} //creatRoute()
+} //createRouteWishlist()
 
 class WishlistPage extends StatefulWidget {
   const WishlistPage({super.key});
@@ -38,20 +30,13 @@ class WishlistPage extends StatefulWidget {
 } //WishlistPage class
 
 class WishlistPageState extends State<WishlistPage> {
+  int currentIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop, result) async {
-        bool? confirm = await DialogConfirmLogoutFromApp.show(context);
-        if (confirm == true) {
-          SystemNavigator.pop();
-        }
-      },
-      child: ClipRRect(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(ScreenUtil().radius(20)),
-              bottomRight: Radius.circular(ScreenUtil().radius(20))),
+      child: CustomClipRRectBottom(
           child: Scaffold(
               backgroundColor: Colors.white,
               bottomNavigationBar: BottomNavigationBar(
@@ -69,23 +54,24 @@ class WishlistPageState extends State<WishlistPage> {
                 ],
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Colors.grey[100],
-                onTap: (value) {
-                  if (value == 0) {
+                onTap: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                  if (index == 0) {
                     Navigator.of(context).pushAndRemoveUntil(
-                      createRouteWishlist(BooksPage()),
+                      createRouteHome(BooksPage()),
                       (route) => false,
                     );
-                  }
-                  if (value == 2) {
+                  } else if (index == 2) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        createRouteWishlist(HomePage()), (route) => false);
-                  } else if (value == 3) {
+                        createRouteHome(HomePage()), (route) => false);
+                  } else if (index == 3) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        createRouteWishlist(AudioBooksPage()),
-                        (route) => false);
-                  } else if (value == 4) {
+                        createRouteHome(AudioBooksPage()), (route) => false);
+                  } else if (index == 4) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        createRouteWishlist(ProfilePage()), (route) => false);
+                        createRouteHome(ProfilePage()), (route) => false);
                   }
                 },
                 elevation: 0,
@@ -99,7 +85,7 @@ class WishlistPageState extends State<WishlistPage> {
               appBar: AppBar(
                 centerTitle: true,
                 title: CustomText(
-                    textData: AppStrings.wishlist,
+                    text: AppStrings.wishlist,
                     textAlign: TextAlign.center,
                     fontSize: 16,
                     textColor: Colors.black,

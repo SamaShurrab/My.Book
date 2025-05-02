@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_top.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'package:my_book_app/Values/string.dart';
@@ -65,16 +66,12 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
     if (widget.routeName == "register") {
       // This widget has been used to change the status of the statusBar icons to light only for this interface and not for all interfaces.
       return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.light,
-        ),
-        // This widget is used to make the upper edges of a circular screen.
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(ScreenUtil().radius(20)),
-            topRight: Radius.circular(ScreenUtil().radius(20)),
+          value: SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.light,
           ),
-          child: Scaffold(
+          // This widget is used to make the upper edges of a circular screen.
+          child: CustomClipRRectTop(
+              child: Scaffold(
             backgroundColor: AppColors.tahitiGold,
             body: Column(
               children: [
@@ -105,7 +102,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                       child: ListView(
                         children: [
                           CustomText(
-                              textData: AppStrings.termsAndConditions,
+                              text: AppStrings.termsAndConditions,
                               textAlign: TextAlign.start,
                               fontSize: 16,
                               textColor: Colors.black,
@@ -114,7 +111,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                             height: ScreenUtil().setHeight(8),
                           ),
                           CustomText(
-                              textData: AppStrings.introduction,
+                              text: AppStrings.introduction,
                               textAlign: TextAlign.start,
                               fontSize: 12,
                               textColor: Colors.black,
@@ -147,7 +144,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                             Expanded(
                                               flex: 5,
                                               child: CustomText(
-                                                  textData:
+                                                  text:
                                                       "${termsList[i]["titleTerm"]}",
                                                   textAlign: TextAlign.start,
                                                   fontSize: 13,
@@ -198,7 +195,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                               horizontal:
                                                   ScreenUtil().setWidth(10)),
                                           child: CustomText(
-                                              textData:
+                                              text:
                                                   "${termsList[i]["descriptionTerm"]}",
                                               textAlign: TextAlign.start,
                                               fontSize: 13,
@@ -219,9 +216,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                     ))
               ],
             ),
-          ),
-        ),
-      );
+          )));
     } else {
       return Scaffold(
         backgroundColor: Colors.white,
@@ -230,7 +225,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               color: Colors.black, size: ScreenUtil().setWidth(20)),
           centerTitle: true,
           title: CustomText(
-              textData: AppStrings.termsAndConditions,
+              text: AppStrings.termsAndConditions,
               textAlign: TextAlign.center,
               fontSize: 16,
               textColor: Colors.black,
@@ -254,7 +249,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
             children: [
               Expanded(
                 child: CustomText(
-                    textData: AppStrings.introduction,
+                    text: AppStrings.introduction,
                     textAlign: TextAlign.center,
                     fontSize: 13,
                     textColor: Colors.black,
@@ -263,7 +258,6 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               Expanded(
                 flex: 4,
                 child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
                   itemCount: termsList.length,
                   itemBuilder: (context, i) {
                     return Column(
@@ -284,8 +278,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                   Expanded(
                                     flex: 5,
                                     child: CustomText(
-                                        textData:
-                                            "${termsList[i]["titleTerm"]}",
+                                        text: "${termsList[i]["titleTerm"]}",
                                         textAlign: TextAlign.start,
                                         fontSize: 13,
                                         textColor: Colors.white,
@@ -328,8 +321,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                     vertical: ScreenUtil().setHeight(10),
                                     horizontal: ScreenUtil().setWidth(10)),
                                 child: CustomText(
-                                    textData:
-                                        "${termsList[i]["descriptionTerm"]}",
+                                    text: "${termsList[i]["descriptionTerm"]}",
                                     textAlign: TextAlign.start,
                                     fontSize: 13,
                                     textColor: Colors.black,

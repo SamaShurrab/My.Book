@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/custom_buttom_form.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/form_submit_button.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text_form_field.dart';
 import 'package:my_book_app/Pages/profile_page.dart';
 
@@ -15,11 +16,7 @@ import '../Values/string.dart';
 Route creatRoute(Widget destanation) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) {
-      return ClipRRect(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(ScreenUtil().radius(20)),
-              bottomRight: Radius.circular(ScreenUtil().radius(20))),
-          child: destanation);
+      return CustomClipRRectBottom(child: destanation);
     },
   );
 } //creatRoute()
@@ -52,7 +49,7 @@ class ReportBugPageState extends State<ReportBugPage> {
               color: Colors.black,
             )),
         title: CustomText(
-            textData: AppStrings.reportBug,
+            text: AppStrings.reportBug,
             textAlign: TextAlign.center,
             fontSize: 16,
             textColor: Colors.black,
@@ -66,7 +63,7 @@ class ReportBugPageState extends State<ReportBugPage> {
           physics: BouncingScrollPhysics(),
           children: [
             CustomText(
-                textData: AppStrings.reportDescription,
+                text: AppStrings.reportDescription,
                 textAlign: TextAlign.center,
                 fontSize: 13,
                 textColor: Colors.black,
@@ -126,7 +123,7 @@ class ReportBugPageState extends State<ReportBugPage> {
                     SizedBox(
                       height: ScreenUtil().setHeight(20),
                     ),
-                    CustomButtonForm(
+                    FormSubmitButton(
                       formKey: formKey,
                       buttonName: AppStrings.send,
                       onPressed: () {
