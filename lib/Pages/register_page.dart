@@ -64,7 +64,6 @@ class RegisterPageState extends State<RegisterPage> {
                             topRight: Radius.circular(ScreenUtil().radius(20)),
                             topLeft: Radius.circular(ScreenUtil().radius(20)))),
                     child: ListView(
-                      physics: BouncingScrollPhysics(),
                       children: [
                         CustomText(
                             text: AppStrings.register,
@@ -121,7 +120,7 @@ class RegisterPageState extends State<RegisterPage> {
                                     borderRadius: BorderRadius.circular(
                                         ScreenUtil().radius(30)),
                                     borderSide: BorderSide(
-                                        color: AppColors.snow,
+                                        color: AppColors.tahitiGold,
                                         width: ScreenUtil().setWidth(1))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
@@ -172,7 +171,7 @@ class RegisterPageState extends State<RegisterPage> {
                                     borderRadius: BorderRadius.circular(
                                         ScreenUtil().radius(30)),
                                     borderSide: BorderSide(
-                                        color: AppColors.snow,
+                                        color: AppColors.tahitiGold,
                                         width: ScreenUtil().setWidth(1))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
@@ -222,7 +221,7 @@ class RegisterPageState extends State<RegisterPage> {
                                     borderRadius: BorderRadius.circular(
                                         ScreenUtil().radius(30)),
                                     borderSide: BorderSide(
-                                        color: AppColors.snow,
+                                        color: AppColors.tahitiGold,
                                         width: ScreenUtil().setWidth(1))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
@@ -272,7 +271,7 @@ class RegisterPageState extends State<RegisterPage> {
                                     borderRadius: BorderRadius.circular(
                                         ScreenUtil().radius(30)),
                                     borderSide: BorderSide(
-                                        color: AppColors.snow,
+                                        color: AppColors.tahitiGold,
                                         width: ScreenUtil().setWidth(1))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(

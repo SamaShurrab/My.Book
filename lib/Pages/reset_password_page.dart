@@ -138,7 +138,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                     borderRadius: BorderRadius.circular(
                                         ScreenUtil().radius(30)),
                                     borderSide: BorderSide(
-                                        color: AppColors.snow,
+                                        color: AppColors.tahitiGold,
                                         width: ScreenUtil().setWidth(1))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
@@ -189,7 +189,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                     borderRadius: BorderRadius.circular(
                                         ScreenUtil().radius(30)),
                                     borderSide: BorderSide(
-                                        color: AppColors.snow,
+                                        color: AppColors.tahitiGold,
                                         width: ScreenUtil().setWidth(1))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
@@ -208,79 +208,76 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                               SizedBox(
                                 height: ScreenUtil().setHeight(20),
                               ),
-                              if (newPasswordController.text.trim() ==
-                                  confirmPasswordController.text.trim())
-                                FormSubmitButton(
-                                  formKey: formKey,
-                                  /*
+                              FormSubmitButton(
+                                formKey: formKey,
+                                /*
                                   This function checks whether the two passwords are similar or not. 
                                   If they are similar, a dialog will appear, then it will move to the sigin page. 
                                   If they are not similar, a snackBar will appear and an error message will appear.
                                   */
-                                  onPressed: () async {
-                                    // Lock the keyboard when pressing the button before the dialog appears
-                                    FocusScope.of(context).unfocus();
+                                onPressed: () async {
+                                  // Lock the keyboard when pressing the button before the dialog appears
+                                  FocusScope.of(context).unfocus();
 
-                                    // Slight delay to ensure keyboard is closed
-                                    await Future.delayed(
-                                        const Duration(milliseconds: 60));
-                                    String newPassowrd =
-                                        newPasswordController.text;
-                                    String confirmPassword =
-                                        confirmPasswordController.text;
+                                  // Slight delay to ensure keyboard is closed
+                                  await Future.delayed(
+                                      const Duration(milliseconds: 60));
+                                  String newPassowrd =
+                                      newPasswordController.text;
+                                  String confirmPassword =
+                                      confirmPasswordController.text;
 
-                                    if (formKey.currentState == null ||
-                                        formKey.currentState!.validate()) {
-                                      return;
-                                    }
-                                    // To show dialog when the operation is successful
-                                    if (newPassowrd == confirmPassword) {
-                                      showDialog(
-                                          barrierDismissible: true,
-                                          context: context,
-                                          builder: (dialogContext) {
-                                            // The dialog will move after 5 seconds to the signin page.
-                                            Timer(const Duration(seconds: 4),
-                                                () {
-                                              //To close the dialog
-                                              Navigator.pop(dialogContext);
+                                  if (formKey.currentState == null ||
+                                      !formKey.currentState!.validate()) {
+                                    return;
+                                  }
+                                  // To show dialog when the operation is successful
+                                  if (newPassowrd == confirmPassword) {
+                                    showDialog(
+                                        barrierDismissible: true,
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          // The dialog will move after 5 seconds to the signin page.
+                                          Timer(const Duration(seconds: 4), () {
+                                            //To close the dialog
+                                            Navigator.pop(dialogContext);
 
-                                              // After closing the dialog, you will be taken directly to the signin page.
-                                              Navigator.pushReplacementNamed(
-                                                  context, "chooseInterest");
-                                            });
-
-                                            return CustomSuccessfulDialog();
+                                            // After closing the dialog, you will be taken directly to the signin page.
+                                            Navigator.pushReplacementNamed(
+                                                context, "signin");
                                           });
-                                    } else {
-                                      if (!mounted) return;
-                                      // ignore: use_build_context_synchronously
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(SnackBar(
-                                        content: CustomText(
-                                            text: AppStrings.notSimialr,
-                                            textAlign: TextAlign.start,
-                                            fontSize: 13,
-                                            textColor: Colors.white,
-                                            fontWeight: FontWeight.w600),
-                                        backgroundColor: Colors.red,
-                                      ));
-                                    }
-                                  },
-                                  buttonName: AppStrings.continueBtn,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                  textColor: Colors.white,
-                                  textAlign: TextAlign.center,
-                                  shapeBorder: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
-                                  ),
-                                  background: AppColors.tahitiGold,
-                                  elevation: 0,
-                                  width: double.infinity,
-                                  height: 45,
+
+                                          return CustomSuccessfulDialog();
+                                        });
+                                  } else {
+                                    if (!mounted) return;
+                                    // ignore: use_build_context_synchronously
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: CustomText(
+                                          text: AppStrings.notSimialr,
+                                          textAlign: TextAlign.start,
+                                          fontSize: 13,
+                                          textColor: Colors.white,
+                                          fontWeight: FontWeight.w600),
+                                      backgroundColor: Colors.red,
+                                    ));
+                                  }
+                                },
+                                buttonName: AppStrings.continueBtn,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                                textColor: Colors.white,
+                                textAlign: TextAlign.center,
+                                shapeBorder: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      ScreenUtil().radius(30)),
                                 ),
+                                background: AppColors.tahitiGold,
+                                elevation: 0,
+                                width: double.infinity,
+                                height: 45,
+                              ),
                             ],
                           ),
                         ),

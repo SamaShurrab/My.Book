@@ -39,12 +39,6 @@ class HomePageState extends State<HomePage> {
   final GlobalKey<BookInformationState> booksListKey =
       GlobalKey<BookInformationState>();
 
-  List tabBarItem = [
-    AppStrings.forYou,
-    AppStrings.popular,
-    AppStrings.newReleases
-  ];
-
   List drawerList = [
     {"iconName": Icons.home_outlined, "topicName": AppStrings.home},
     {"iconName": Icons.menu_book_rounded, "topicName": AppStrings.books},

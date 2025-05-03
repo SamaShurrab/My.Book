@@ -170,7 +170,7 @@ class SigninPageState extends State<SigninPage> {
                                       borderRadius: BorderRadius.circular(
                                           ScreenUtil().radius(30)),
                                       borderSide: BorderSide(
-                                          color: AppColors.snow,
+                                          color: AppColors.tahitiGold,
                                           width: ScreenUtil().setWidth(1))),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
@@ -220,7 +220,7 @@ class SigninPageState extends State<SigninPage> {
                                       borderRadius: BorderRadius.circular(
                                           ScreenUtil().radius(30)),
                                       borderSide: BorderSide(
-                                          color: AppColors.snow,
+                                          color: AppColors.tahitiGold,
                                           width: ScreenUtil().setWidth(1))),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(

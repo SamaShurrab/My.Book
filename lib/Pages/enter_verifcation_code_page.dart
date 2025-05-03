@@ -133,7 +133,8 @@ class EnterVerifcationCodePageState extends State<EnterVerifcationCodePage> {
                                                           ScreenUtil()
                                                               .radius(20)),
                                                   borderSide: BorderSide(
-                                                      color: AppColors.snow,
+                                                      color:
+                                                          AppColors.tahitiGold,
                                                       width: ScreenUtil()
                                                           .setWidth(1))),
                                               enabledBorder: OutlineInputBorder(

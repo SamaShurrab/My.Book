@@ -244,7 +244,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                         borderRadius:
                             BorderRadius.circular(ScreenUtil().radius(30)),
                         borderSide: BorderSide(
-                            color: AppColors.snow,
+                            color: AppColors.tahitiGold,
                             width: ScreenUtil().setWidth(1))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius:
@@ -294,7 +294,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                         borderRadius:
                             BorderRadius.circular(ScreenUtil().radius(30)),
                         borderSide: BorderSide(
-                            color: AppColors.snow,
+                            color: AppColors.tahitiGold,
                             width: ScreenUtil().setWidth(1))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius:
@@ -344,7 +344,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                         borderRadius:
                             BorderRadius.circular(ScreenUtil().radius(30)),
                         borderSide: BorderSide(
-                            color: AppColors.snow,
+                            color: AppColors.tahitiGold,
                             width: ScreenUtil().setWidth(1))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius:
