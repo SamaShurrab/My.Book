@@ -50,6 +50,22 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+            tabBarTheme: TabBarTheme(
+              overlayColor: WidgetStateProperty.all(Colors.transparent),
+              dividerColor: Colors.transparent,
+              indicatorColor: AppColors.tahitiGold,
+              labelStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(11.sp),
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "gilroy"),
+              tabAlignment: TabAlignment.start,
+              unselectedLabelStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(10.sp),
+                  color: const Color.fromARGB(255, 123, 121, 121),
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "gilroy"),
+            ),
             fontFamily: "gilroy",
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: AppBarTheme(

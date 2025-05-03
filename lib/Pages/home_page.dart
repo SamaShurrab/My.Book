@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_tab_bar.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/logout_dialog.dart';
 import 'package:my_book_app/Values/colors.dart';
@@ -332,12 +332,10 @@ class HomePageState extends State<HomePage> {
                                 ),
                               )
                             : index == 2
-                                ? Container(
-                                    margin: EdgeInsets.symmetric(
+                                ? Padding(
+                                    padding: EdgeInsets.symmetric(
                                         horizontal: ScreenUtil().setWidth(15)),
-                                    width: double.infinity,
-                                    height: ScreenUtil().setHeight(150),
-                                    color: Colors.black,
+                                    child: CustomTabBar(),
                                   )
                                 : index == 3
                                     ? Padding(

@@ -52,6 +52,9 @@ class AppStrings {
   static const String popular = "Popular";
   static const String newReleases = "New releases";
   static const String bestSeller = "BestSeller";
+  static const String topRated = "Top Rated";
+  static const String freeBooks = "Free Books";
+  static const String hiddenGems = "Hidden Gems";
   // ProfilePage
   static const String profile = "Profile";
   static const String userEmail = "hirata@gmail.com";

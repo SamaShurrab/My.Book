@@ -235,6 +235,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                   if (newPassowrd == confirmPassword) {
                                     showDialog(
                                         barrierDismissible: true,
+                                        // ignore: use_build_context_synchronously
                                         context: context,
                                         builder: (dialogContext) {
                                           // The dialog will move after 5 seconds to the signin page.
