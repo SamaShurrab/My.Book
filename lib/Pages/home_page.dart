@@ -5,6 +5,7 @@ import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dar
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_tab_bar.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/logout_dialog.dart';
+import 'package:my_book_app/Pages/archives_page.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'package:my_book_app/Values/string.dart';
 import '../Custom Wedigt Design/asset_image_widget.dart';
@@ -44,6 +45,10 @@ class HomePageState extends State<HomePage> {
     {"iconName": Icons.menu_book_rounded, "topicName": AppStrings.books},
     {"iconName": Icons.favorite_border, "topicName": AppStrings.wishlist},
     {"iconName": Icons.person_outline_rounded, "topicName": AppStrings.profile},
+    {
+      "iconName": Icons.bookmark_border_outlined,
+      "topicName": AppStrings.archives
+    },
     {
       "iconName": Icons.notifications_outlined,
       "topicName": AppStrings.notifications
@@ -147,7 +152,12 @@ class HomePageState extends State<HomePage> {
                                     (route) => false,
                                   );
                                 } else if (index == 4) {
-                                } else if (index == 5) {
+                                  Navigator.of(context).pushAndRemoveUntil(
+                                    createRouteHome(ArchivesPage()),
+                                    (route) => false,
+                                  );
+                                } else if (index == 4) {
+                                } else if (index == 6) {
                                   LogoutDialog.show(context);
                                 }
                               },

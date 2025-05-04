@@ -100,9 +100,14 @@ class BookInformationState extends State<BookInformation> {
       while the books that the user saved will be displayed in the Archives interface, 
       and in the Book interface all books will be displayed.
     */
-    filteredBook = widget.pageName == "wishlist"
-        ? bookDetails.where((item) => item.isFavorite == true).toList()
-        : bookDetails;
+    if (widget.pageName == "wishlist") {
+      filteredBook =
+          bookDetails.where((item) => item.isFavorite == true).toList();
+    } else if (widget.pageName == "archives") {
+      filteredBook = bookDetails.where((item) => item.isSaved == true).toList();
+    } else {
+      filteredBook = bookDetails;
+    }
   }
 
   @override
@@ -161,9 +166,9 @@ class BookInformationState extends State<BookInformation> {
                                 } //if()
 
                                 // To update the filteredBook after each click on the heart icon for the wishlist page.
-                                if (widget.pageName == "wishlist") {
+                                if (widget.pageName == "archives") {
                                   filteredBook = bookDetails
-                                      .where((item) => item.isFavorite)
+                                      .where((item) => item.isSaved)
                                       .toList();
                                 } //if()
                               });

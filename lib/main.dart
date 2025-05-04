@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_book_app/Pages/archives_page.dart';
 import 'package:my_book_app/Pages/books_page.dart';
 import 'package:my_book_app/Pages/choose_interest_page.dart';
 import 'package:my_book_app/Pages/edit_profile_page.dart';
@@ -95,6 +96,7 @@ class MyApp extends StatelessWidget {
           "books": (context) => BooksPage(),
           "reportBug": (context) => ReportBugPage(),
           "chooseInterest": (context) => ChooseInterestPage(),
+          "archives": (context) => ArchivesPage()
         },
       ),
     );

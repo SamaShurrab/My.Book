@@ -187,4 +187,7 @@ class AppStrings {
   static const String send = "Send";
   static const writeHereHint = "Write Here.....";
   static const emptyField = "Required field";
+
+  // Archives Page
+  static const String archives = "Archives";
 }//AppStrings class
