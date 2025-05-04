@@ -111,7 +111,6 @@ class BookInformationState extends State<BookInformation> {
       width: double.infinity,
       height: ScreenUtil().setHeight(widget.height),
       child: GridView.builder(
-        physics: BouncingScrollPhysics(),
         shrinkWrap: widget.shrinkWrap,
         scrollDirection: widget.scrollDirection,
         itemCount: filteredBook.length,
@@ -119,18 +118,67 @@ class BookInformationState extends State<BookInformation> {
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              InkWell(
-                splashColor: Colors.transparent,
-                onTap: () {},
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(ScreenUtil().radius(15)),
-                  child: AssetImageWidget (
-                    imagePath: filteredBook[index].bookImage,
-                    fit: BoxFit.fill,
-                    width: 150,
-                    height: 210,
+              Stack(
+                children: [
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    onTap: () {},
+                    child: ClipRRect(
+                      borderRadius:
+                          BorderRadius.circular(ScreenUtil().radius(15)),
+                      child: AssetImageWidget(
+                        imagePath: filteredBook[index].bookImage,
+                        fit: BoxFit.fill,
+                        width: 150,
+                        height: 210,
+                      ),
+                    ),
                   ),
-                ),
+                  Positioned(
+                      left: 10,
+                      top: 10,
+                      child: Container(
+                        width: ScreenUtil().setWidth(20.w),
+                        height: ScreenUtil().setHeight(25.h),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(
+                                ScreenUtil().radius(5.r))),
+                        child: InkWell(
+                            splashColor: Colors.transparent,
+                            onTap: () {
+                              setState(() {
+                                // This variable represents the book that the heart icon was clicked on.
+                                final book = filteredBook[index];
+
+                                // This variable represents the index of the book whose data was taken from the filteredBook.
+                                final int bookIndex = bookDetails.indexOf(book);
+
+                                // To modify the value of the isSaved property each time the user clicks the heart icon in bookDetails.
+                                if (bookIndex != -1) {
+                                  bookDetails[bookIndex].isSaved =
+                                      !bookDetails[bookIndex].isSaved;
+                                } //if()
+
+                                // To update the filteredBook after each click on the heart icon for the wishlist page.
+                                if (widget.pageName == "wishlist") {
+                                  filteredBook = bookDetails
+                                      .where((item) => item.isFavorite)
+                                      .toList();
+                                } //if()
+                              });
+                            },
+                            child: Icon(
+                              filteredBook[index].isSaved
+                                  ? Icons.bookmark
+                                  : Icons.bookmark_border_outlined,
+                              size: 30,
+                              color: filteredBook[index].isSaved
+                                  ? Colors.black
+                                  : Colors.black,
+                            )),
+                      ))
+                ],
               ),
               SizedBox(
                 height: ScreenUtil().setHeight(10),
@@ -200,7 +248,7 @@ class BookInformationState extends State<BookInformation> {
                               color: filteredBook[index].isFavorite
                                   ? Colors.red
                                   : Colors.black,
-                            )))
+                            ))),
                   ],
                 ),
               )

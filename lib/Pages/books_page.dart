@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Values/string.dart';
@@ -87,6 +88,16 @@ class BooksPageState extends State<BooksPage> {
               fontSize: 16,
               textColor: Colors.black,
               fontWeight: FontWeight.w700),
+        ),
+        body: BookInformation(
+          pageName: "book",
+          height: double.infinity,
+          shrinkWrap: false,
+          scrollDirection: Axis.vertical,
+          crossAxisCount: 2,
+          mainAxisExtent: 300,
+          crossAxisSpacing: 0,
+          mainAxisSpacing: 0,
         ),
       )),
     );
