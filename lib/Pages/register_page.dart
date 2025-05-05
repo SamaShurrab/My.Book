@@ -43,45 +43,44 @@ class RegisterPageState extends State<RegisterPage> {
             children: [
               Expanded(
                 flex: 2,
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: CustomImageSvg(
-                      height: 110,
-                      width: 110,
-                      imagePath: 'images/logo.svg',
-                      imageColor: Colors.white),
-                ),
+                child: CustomImageSvg(
+                    height: 100,
+                    width: 100,
+                    imagePath: 'images/logo.svg',
+                    imageColor: Colors.white),
               ),
               Expanded(
                   flex: 7,
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: ScreenUtil().setWidth(20)),
+                        horizontal: ScreenUtil().setWidth(15.w)),
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(ScreenUtil().radius(20)),
-                            topLeft: Radius.circular(ScreenUtil().radius(20)))),
+                            topRight:
+                                Radius.circular(ScreenUtil().radius(20.r)),
+                            topLeft:
+                                Radius.circular(ScreenUtil().radius(20.r)))),
                     child: ListView(
                       children: [
                         CustomText(
                             text: AppStrings.register,
                             textAlign: TextAlign.start,
-                            fontSize: 16,
+                            fontSize: 13,
                             textColor: Colors.black,
                             fontWeight: FontWeight.w700),
                         SizedBox(
-                          height: ScreenUtil().setHeight(8),
+                          height: ScreenUtil().setHeight(5.h),
                         ),
                         CustomText(
                             text: AppStrings.registerPageDescription,
                             textAlign: TextAlign.start,
-                            fontSize: 12,
+                            fontSize: 10,
                             textColor: Colors.black,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: ScreenUtil().setHeight(20),
+                          height: ScreenUtil().setHeight(15.h),
                         ),
                         Form(
                           key: formKey,
@@ -90,10 +89,10 @@ class RegisterPageState extends State<RegisterPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CustomTextFormField(
-                                bottom: 12.0,
+                                bottom: 8.0,
                                 textAlignVertical: TextAlignVertical.center,
                                 textAlign: TextAlign.start,
-                                fontSize: 12,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.black,
                                 horizontal: 20.0,
@@ -102,32 +101,32 @@ class RegisterPageState extends State<RegisterPage> {
                                 errorTextColor: Colors.red,
                                 focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 textInputAction: TextInputAction.next,
                                 iconSize: 25.0,
                                 textInputType: TextInputType.text,
                                 obscureText: false,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.tahitiGold,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 hintText: AppStrings.userName,
                                 textColorHint: AppColors.hintTextColor,
                                 fontSizeHint: 14.0,
@@ -137,14 +136,14 @@ class RegisterPageState extends State<RegisterPage> {
                                 suffixIcon: Icons.person_outline_rounded,
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(15),
+                                height: ScreenUtil().setHeight(10.h),
                               ),
                               CustomTextFormField(
-                                bottom: 12.0,
+                                bottom: 8.0,
                                 textAlignVertical: TextAlignVertical.center,
                                 textAlign: TextAlign.start,
                                 controller: emailController,
-                                fontSize: 12,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.black,
                                 horizontal: 20.0,
@@ -153,32 +152,32 @@ class RegisterPageState extends State<RegisterPage> {
                                 errorTextColor: Colors.red,
                                 focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 textInputAction: TextInputAction.next,
                                 iconSize: 25.0,
                                 textInputType: TextInputType.emailAddress,
                                 obscureText: false,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.tahitiGold,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 hintText: AppStrings.emailAddress,
                                 textColorHint: AppColors.hintTextColor,
                                 fontSizeHint: 14.0,
@@ -188,13 +187,13 @@ class RegisterPageState extends State<RegisterPage> {
                                 suffixIcon: Icons.email_outlined,
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(15),
+                                height: ScreenUtil().setHeight(10.h),
                               ),
                               CustomTextFormField(
-                                bottom: 12.0,
+                                bottom: 8.0,
                                 textAlignVertical: TextAlignVertical.center,
                                 textAlign: TextAlign.start,
-                                fontSize: 12,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.black,
                                 horizontal: 20.0,
@@ -203,32 +202,32 @@ class RegisterPageState extends State<RegisterPage> {
                                 errorTextColor: Colors.red,
                                 focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 textInputAction: TextInputAction.next,
                                 iconSize: 25.0,
                                 textInputType: TextInputType.number,
                                 obscureText: false,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.tahitiGold,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 hintText: AppStrings.phoneNmeber,
                                 textColorHint: AppColors.hintTextColor,
                                 fontSizeHint: 14.0,
@@ -238,13 +237,13 @@ class RegisterPageState extends State<RegisterPage> {
                                 suffixIcon: Icons.phone_outlined,
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(15),
+                                height: ScreenUtil().setHeight(15.h),
                               ),
                               CustomTextFormField(
-                                bottom: 12.0,
+                                bottom: 8.0,
                                 textAlignVertical: TextAlignVertical.center,
                                 textAlign: TextAlign.start,
-                                fontSize: 12,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.black,
                                 horizontal: 20.0,
@@ -253,32 +252,32 @@ class RegisterPageState extends State<RegisterPage> {
                                 errorTextColor: Colors.red,
                                 focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 textInputAction: TextInputAction.done,
                                 iconSize: 25.0,
                                 textInputType: TextInputType.number,
                                 obscureText: true,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.tahitiGold,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 hintText: AppStrings.password,
                                 textColorHint: AppColors.hintTextColor,
                                 fontSizeHint: 14.0,
@@ -288,17 +287,17 @@ class RegisterPageState extends State<RegisterPage> {
                                 suffixIconColor: AppColors.tahitiGold,
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(15),
+                                height: ScreenUtil().setHeight(10.h),
                               ),
                               CustomText(
                                   text: AppStrings.confirmAgree,
                                   textAlign: TextAlign.start,
-                                  fontSize: 11,
+                                  fontSize: 10,
                                   textColor: Colors.black,
                                   fontWeight: FontWeight.w600),
                               Padding(
                                 padding: EdgeInsets.only(
-                                    top: ScreenUtil().setHeight(5)),
+                                    top: ScreenUtil().setHeight(5.h)),
                                 child: InkWell(
                                   onTap: () {
                                     Navigator.of(context).push(
@@ -313,13 +312,13 @@ class RegisterPageState extends State<RegisterPage> {
                                   child: CustomText(
                                       text: AppStrings.termsAndConditions,
                                       textAlign: TextAlign.start,
-                                      fontSize: 12,
+                                      fontSize: 10,
                                       textColor: AppColors.tahitiGold,
                                       fontWeight: FontWeight.w700),
                                 ),
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(50),
+                                height: ScreenUtil().setHeight(40.h),
                               ),
                               FormSubmitButton(
                                 onPressed: () {
@@ -340,24 +339,24 @@ class RegisterPageState extends State<RegisterPage> {
                                 },
                                 formKey: formKey,
                                 buttonName: AppStrings.continueBtn,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
                                 textColor: Colors.white,
                                 textAlign: TextAlign.center,
                                 shapeBorder: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(
-                                      ScreenUtil().radius(30)),
+                                      ScreenUtil().radius(30.r)),
                                 ),
                                 background: AppColors.tahitiGold,
                                 elevation: 0,
                                 width: double.infinity,
-                                height: 40,
+                                height: 35,
                               ),
                             ],
                           ),
                         ),
                         SizedBox(
-                          height: ScreenUtil().setHeight(20),
+                          height: ScreenUtil().setHeight(10),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -365,11 +364,11 @@ class RegisterPageState extends State<RegisterPage> {
                             CustomText(
                                 text: AppStrings.alreadyUser,
                                 textAlign: TextAlign.end,
-                                fontSize: 11,
+                                fontSize: 10,
                                 textColor: Colors.black,
                                 fontWeight: FontWeight.w500),
                             SizedBox(
-                              width: ScreenUtil().setWidth(3),
+                              width: ScreenUtil().setWidth(3.w),
                             ),
                             InkWell(
                                 onTap: () {
@@ -378,13 +377,13 @@ class RegisterPageState extends State<RegisterPage> {
                                 child: CustomText(
                                     text: AppStrings.signIn,
                                     textAlign: TextAlign.end,
-                                    fontSize: 11,
+                                    fontSize: 10,
                                     textColor: AppColors.tahitiGold,
                                     fontWeight: FontWeight.w700)),
                           ],
                         ),
                         SizedBox(
-                          height: ScreenUtil().setHeight(20),
+                          height: ScreenUtil().setHeight(15.h),
                         ),
                       ],
                     ),

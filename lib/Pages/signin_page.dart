@@ -92,8 +92,8 @@ class SigninPageState extends State<SigninPage> {
                   child: Padding(
                     padding: EdgeInsets.all(20),
                     child: CustomImageSvg(
-                        height: 110,
-                        width: 110,
+                        height: 100,
+                        width: 100,
                         imagePath: 'images/logo.svg',
                         imageColor: Colors.white),
                   ),
@@ -102,35 +102,34 @@ class SigninPageState extends State<SigninPage> {
                     flex: 7,
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                          horizontal: ScreenUtil().setWidth(20)),
+                          horizontal: ScreenUtil().setWidth(20.w)),
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topRight:
-                                  Radius.circular(ScreenUtil().radius(20)),
+                                  Radius.circular(ScreenUtil().radius(20.r)),
                               topLeft:
-                                  Radius.circular(ScreenUtil().radius(20)))),
+                                  Radius.circular(ScreenUtil().radius(20.r)))),
                       child: ListView(
-                        physics: BouncingScrollPhysics(),
                         children: [
                           CustomText(
                               text: AppStrings.signIn,
                               textAlign: TextAlign.start,
-                              fontSize: 16,
+                              fontSize: 13,
                               textColor: Colors.black,
                               fontWeight: FontWeight.w700),
                           SizedBox(
-                            height: ScreenUtil().setHeight(8),
+                            height: ScreenUtil().setHeight(5.h),
                           ),
                           CustomText(
                               text: AppStrings.signUpPageDescription,
                               textAlign: TextAlign.start,
-                              fontSize: 12,
+                              fontSize: 10,
                               textColor: Colors.black,
                               fontWeight: FontWeight.w500),
                           SizedBox(
-                            height: ScreenUtil().setHeight(20),
+                            height: ScreenUtil().setHeight(15.h),
                           ),
                           Form(
                             key: formKey,
@@ -138,10 +137,10 @@ class SigninPageState extends State<SigninPage> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 CustomTextFormField(
-                                  bottom: 12.0,
+                                  bottom: 8.0,
                                   textAlignVertical: TextAlignVertical.center,
                                   textAlign: TextAlign.start,
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.w600,
                                   textColor: Colors.black,
                                   horizontal: 20.0,
@@ -152,32 +151,32 @@ class SigninPageState extends State<SigninPage> {
                                   errorTextColor: Colors.red,
                                   focusedErrorBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: Colors.red,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   errorBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: Colors.red,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   textInputAction: TextInputAction.next,
                                   iconSize: 25.0,
                                   textInputType: TextInputType.emailAddress,
                                   obscureText: false,
                                   focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: AppColors.tahitiGold,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: AppColors.snow,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   hintText: AppStrings.emailAddress,
                                   textColorHint: AppColors.hintTextColor,
                                   fontSizeHint: 14.0,
@@ -187,13 +186,13 @@ class SigninPageState extends State<SigninPage> {
                                   suffixIcon: Icons.email_outlined,
                                 ),
                                 SizedBox(
-                                  height: ScreenUtil().setHeight(15),
+                                  height: ScreenUtil().setHeight(10.h),
                                 ),
                                 CustomTextFormField(
-                                  bottom: 12.0,
+                                  bottom: 8.0,
                                   textAlignVertical: TextAlignVertical.center,
                                   textAlign: TextAlign.start,
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.w600,
                                   textColor: Colors.black,
                                   horizontal: 20.0,
@@ -202,32 +201,32 @@ class SigninPageState extends State<SigninPage> {
                                   errorTextColor: Colors.red,
                                   focusedErrorBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: Colors.red,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   errorBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: Colors.red,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   textInputAction: TextInputAction.done,
                                   iconSize: 25.0,
                                   textInputType: TextInputType.number,
                                   obscureText: true,
                                   focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: AppColors.tahitiGold,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(
-                                          ScreenUtil().radius(30)),
+                                          ScreenUtil().radius(30.r)),
                                       borderSide: BorderSide(
                                           color: AppColors.snow,
-                                          width: ScreenUtil().setWidth(1))),
+                                          width: ScreenUtil().setWidth(1.w))),
                                   hintText: AppStrings.password,
                                   textColorHint: AppColors.hintTextColor,
                                   fontSizeHint: 14.0,
@@ -237,18 +236,18 @@ class SigninPageState extends State<SigninPage> {
                                   suffixIconColor: AppColors.tahitiGold,
                                 ),
                                 SizedBox(
-                                  height: ScreenUtil().setHeight(15),
+                                  height: ScreenUtil().setHeight(10.h),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(
-                                      bottom: ScreenUtil().setWidth(100)),
+                                      bottom: ScreenUtil().setHeight(100.h)),
                                   alignment: Alignment.bottomRight,
                                   child: InkWell(
                                     onTap: validateEmailForForgetPasswor,
                                     child: CustomText(
                                         text: AppStrings.forgrtPassword,
                                         textAlign: TextAlign.end,
-                                        fontSize: 11,
+                                        fontSize: 10,
                                         textColor: AppColors.tahitiGold,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -268,24 +267,24 @@ class SigninPageState extends State<SigninPage> {
                                     });
                                   },
                                   buttonName: AppStrings.continueBtn,
-                                  fontSize: 13,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.w600,
                                   textColor: Colors.white,
                                   textAlign: TextAlign.center,
                                   shapeBorder: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                   ),
                                   background: AppColors.tahitiGold,
                                   elevation: 0,
                                   width: double.infinity,
-                                  height: 40,
+                                  height: 35,
                                 ),
                               ],
                             ),
                           ),
                           SizedBox(
-                            height: ScreenUtil().setHeight(20),
+                            height: ScreenUtil().setHeight(15.h),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -293,7 +292,7 @@ class SigninPageState extends State<SigninPage> {
                               CustomText(
                                   text: AppStrings.newUser,
                                   textAlign: TextAlign.end,
-                                  fontSize: 11,
+                                  fontSize: 10,
                                   textColor: Colors.black,
                                   fontWeight: FontWeight.w500),
                               SizedBox(
@@ -306,14 +305,14 @@ class SigninPageState extends State<SigninPage> {
                                 child: CustomText(
                                     text: AppStrings.register,
                                     textAlign: TextAlign.end,
-                                    fontSize: 11,
+                                    fontSize: 10,
                                     textColor: AppColors.tahitiGold,
                                     fontWeight: FontWeight.w700),
                               )
                             ],
                           ),
                           SizedBox(
-                            height: ScreenUtil().setHeight(10),
+                            height: ScreenUtil().setHeight(10.h),
                           ),
                         ],
                       ),

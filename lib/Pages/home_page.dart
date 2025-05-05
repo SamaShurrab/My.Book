@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/create_route.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/custom_drawer.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_tab_bar.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_text.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/logout_dialog.dart';
-import 'package:my_book_app/Pages/archives_page.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'package:my_book_app/Values/string.dart';
 import '../Custom Wedigt Design/asset_image_widget.dart';
@@ -13,18 +13,6 @@ import 'audio_books_page.dart';
 import 'books_page.dart';
 import 'profile_page.dart';
 import 'wishlist_page.dart';
-
-/*
- A function that creates a custom transition path that 
- displays the new page with a Fade effect and bottom corners clipped using ClipRRect.
-*/
-Route createRouteHome(Widget destination) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) {
-      return CustomClipRRectBottom(child: destination);
-    },
-  );
-} //createRouteHome()
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -62,131 +50,10 @@ class HomePageState extends State<HomePage> {
         canPop: false,
         child: CustomClipRRectBottom(
             child: Scaffold(
-          backgroundColor: Colors.white,
-          drawer: Drawer(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  color: AppColors.tahitiGold,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(
-                        height: ScreenUtil().setHeight(30),
-                      ),
-                      CircleAvatar(
-                        radius: ScreenUtil().radius(50),
-                        backgroundColor: Colors.grey[300],
-                        child: ClipOval(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: ScreenUtil().setWidth(10),
-                                vertical: ScreenUtil().setWidth(10)),
-                            child: Image.asset(
-                              'images/user_img.png',
-                              width: ScreenUtil().setWidth(100),
-                              height: ScreenUtil().setHeight(100),
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: ScreenUtil().setHeight(10),
-                      ),
-                      CustomText(
-                          text: "Sama Shurrab",
-                          textAlign: TextAlign.center,
-                          fontSize: 15,
-                          textColor: Colors.white,
-                          fontWeight: FontWeight.w600),
-                      SizedBox(
-                        height: ScreenUtil().setHeight(5),
-                      ),
-                      CustomText(
-                          text: "smshorap@gmail.com",
-                          textAlign: TextAlign.center,
-                          fontSize: 15,
-                          textColor: Colors.white,
-                          fontWeight: FontWeight.w600),
-                      SizedBox(
-                        height: ScreenUtil().setHeight(10),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(
-                      horizontal: ScreenUtil().setWidth(20)),
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: drawerList.length,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            SizedBox(
-                              height: ScreenUtil().setHeight(20),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              onTap: () {
-                                if (index == 0) {
-                                  Navigator.of(context).pop();
-                                } else if (index == 1) {
-                                  Navigator.of(context).pushAndRemoveUntil(
-                                    createRouteHome(BooksPage()),
-                                    (route) => false,
-                                  );
-                                } else if (index == 2) {
-                                  Navigator.of(context).pushAndRemoveUntil(
-                                    createRouteHome(WishlistPage()),
-                                    (route) => false,
-                                  );
-                                } else if (index == 3) {
-                                  Navigator.of(context).pushAndRemoveUntil(
-                                    createRouteHome(ProfilePage()),
-                                    (route) => false,
-                                  );
-                                } else if (index == 4) {
-                                  Navigator.of(context).pushAndRemoveUntil(
-                                    createRouteHome(ArchivesPage()),
-                                    (route) => false,
-                                  );
-                                } else if (index == 4) {
-                                } else if (index == 6) {
-                                  LogoutDialog.show(context);
-                                }
-                              },
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    drawerList[index]["iconName"],
-                                    size: 35,
-                                    color: Colors.black,
-                                  ),
-                                  SizedBox(
-                                    width: ScreenUtil().setWidth(10),
-                                  ),
-                                  CustomText(
-                                      text: drawerList[index]["topicName"],
-                                      textAlign: TextAlign.start,
-                                      fontSize: 15,
-                                      textColor: Colors.black,
-                                      fontWeight: FontWeight.w600)
-                                ],
-                              ),
-                            ),
-                          ],
-                        );
-                      }),
-                )
-              ],
-            ),
+          drawer: CustomDrawer(
+            pageName: "home",
           ),
+          backgroundColor: Colors.white,
           bottomNavigationBar: BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
@@ -209,18 +76,18 @@ class HomePageState extends State<HomePage> {
               });
               if (index == 0) {
                 Navigator.of(context).pushAndRemoveUntil(
-                  createRouteHome(BooksPage()),
+                  createRoute(BooksPage()),
                   (route) => false,
                 );
               } else if (index == 1) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    createRouteHome(WishlistPage()), (route) => false);
+                    createRoute(WishlistPage()), (route) => false);
               } else if (index == 3) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    createRouteHome(AudioBooksPage()), (route) => false);
+                    createRoute(AudioBooksPage()), (route) => false);
               } else if (index == 4) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    createRouteHome(ProfilePage()), (route) => false);
+                    createRoute(ProfilePage()), (route) => false);
               }
             },
             elevation: 0,
@@ -244,24 +111,22 @@ class HomePageState extends State<HomePage> {
                 floating: false,
                 pinned: true,
                 elevation: 0,
-                iconTheme: IconThemeData(
-                    color: Colors.black, size: ScreenUtil().setWidth(25)),
+                iconTheme: IconThemeData(color: Colors.black, size: 30),
                 actions: [
                   InkWell(
                       splashColor: Colors.transparent,
                       onTap: () {},
                       child: Icon(Icons.search)),
                   SizedBox(
-                    width: ScreenUtil().setWidth(10),
+                    width: ScreenUtil().setWidth(10.w),
                   ),
                   InkWell(
                       onTap: () {
-                        Navigator.of(context)
-                            .push(createRouteHome(ProfilePage()));
+                        Navigator.of(context).pushNamed("shoppingCart");
                       },
-                      child: Icon(Icons.person_outline_sharp)),
+                      child: Icon(Icons.shopping_bag_outlined)),
                   SizedBox(
-                    width: ScreenUtil().setWidth(10),
+                    width: ScreenUtil().setWidth(10.w),
                   )
                 ],
               ),
@@ -272,57 +137,59 @@ class HomePageState extends State<HomePage> {
                     return index == 0
                         ? Padding(
                             padding: EdgeInsets.only(
-                                left: ScreenUtil().setWidth(15)),
+                                left: ScreenUtil().setWidth(10.w)),
                             child: CustomText(
                                 text: AppStrings.home,
                                 textAlign: TextAlign.start,
-                                fontSize: 15,
+                                fontSize: 14,
                                 textColor: Colors.black,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w700),
                           )
                         : index == 1
                             ? Container(
                                 margin: EdgeInsets.symmetric(
-                                    horizontal: ScreenUtil().setWidth(15),
-                                    vertical: ScreenUtil().setHeight(15)),
-                                height: ScreenUtil().setHeight(140),
+                                    horizontal: ScreenUtil().setWidth(10.w),
+                                    vertical: ScreenUtil().setHeight(10.h)),
+                                height: ScreenUtil().setHeight(140.h),
                                 decoration: BoxDecoration(
                                     color: AppColors.tahitiGold,
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(20))),
+                                        ScreenUtil().radius(20.r))),
                                 child: Stack(
                                   clipBehavior: Clip.none,
                                   children: [
                                     SizedBox(
                                       height: double.infinity,
-                                      width: ScreenUtil().setWidth(140),
+                                      width: ScreenUtil().setWidth(125.w),
                                       child: Column(
                                         children: [
                                           Padding(
                                             padding: EdgeInsets.only(
-                                              top: ScreenUtil().setHeight(20),
+                                              top: ScreenUtil().setHeight(20.h),
                                             ),
                                             child: CustomText(
                                                 text: AppStrings
                                                     .homePageDescription1,
                                                 textAlign: TextAlign.start,
-                                                fontSize: 13,
+                                                fontSize: 11,
                                                 textColor: Colors.white,
-                                                fontWeight: FontWeight.w600),
+                                                fontWeight: FontWeight.w700),
                                           ),
                                           Padding(
                                             padding: EdgeInsets.only(
-                                                top: ScreenUtil().setHeight(5),
-                                                left: ScreenUtil().setWidth(15),
-                                                bottom:
-                                                    ScreenUtil().setHeight(15),
-                                                right:
-                                                    ScreenUtil().setWidth(5)),
+                                                top:
+                                                    ScreenUtil().setHeight(5.h),
+                                                left:
+                                                    ScreenUtil().setWidth(10.w),
+                                                bottom: ScreenUtil()
+                                                    .setHeight(15.h),
+                                                right: ScreenUtil()
+                                                    .setWidth(15.w)),
                                             child: CustomText(
                                                 text: AppStrings
                                                     .homePageDescription2,
                                                 textAlign: TextAlign.start,
-                                                fontSize: 11,
+                                                fontSize: 10,
                                                 textColor: Colors.white,
                                                 fontWeight: FontWeight.w600),
                                           )
@@ -330,10 +197,10 @@ class HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                     Positioned(
-                                      width: ScreenUtil().setWidth(135),
-                                      height: ScreenUtil().setHeight(155),
-                                      right: 15,
-                                      top: 13,
+                                      width: ScreenUtil().setWidth(110.w),
+                                      height: ScreenUtil().setHeight(155.h),
+                                      right: 8,
+                                      top: 25,
                                       child: AssetImageWidget(
                                         imagePath: "images/home_page_img.png",
                                       ),
@@ -344,37 +211,38 @@ class HomePageState extends State<HomePage> {
                             : index == 2
                                 ? Padding(
                                     padding: EdgeInsets.symmetric(
-                                        horizontal: ScreenUtil().setWidth(15)),
+                                        horizontal:
+                                            ScreenUtil().setWidth(10.w)),
                                     child: CustomTabBar(),
                                   )
                                 : index == 3
                                     ? Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal:
-                                                ScreenUtil().setWidth(15),
+                                                ScreenUtil().setWidth(10.w),
                                             vertical:
-                                                ScreenUtil().setHeight(10)),
+                                                ScreenUtil().setHeight(10.h)),
                                         child: CustomText(
                                             text: AppStrings.newReleases,
                                             textAlign: TextAlign.start,
-                                            fontSize: 15,
+                                            fontSize: 12,
                                             textColor: Colors.black,
-                                            fontWeight: FontWeight.w600),
+                                            fontWeight: FontWeight.w700),
                                       )
                                     : Padding(
-                                        padding: EdgeInsets.only(
-                                            left: ScreenUtil().setWidth(10),
-                                            right: ScreenUtil().setWidth(10)),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                ScreenUtil().setWidth(10.w)),
                                         child: BookInformation(
                                           bookKey: booksListKey,
                                           pageName: "home",
-                                          height: 248,
+                                          height: 200,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.horizontal,
                                           crossAxisCount: 1,
-                                          mainAxisExtent: 170,
+                                          mainAxisExtent: 150,
                                           crossAxisSpacing: 0,
-                                          mainAxisSpacing: 0,
+                                          mainAxisSpacing: 15,
                                         ),
                                       );
                   },

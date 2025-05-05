@@ -45,26 +45,26 @@ class ChooseInterestPageState extends State<ChooseInterestPage> {
           title: CustomText(
               text: AppStrings.chooseInterest,
               textAlign: TextAlign.start,
-              fontSize: 16,
+              fontSize: 13,
               textColor: Colors.black,
               fontWeight: FontWeight.w700),
         ),
         body: Container(
           margin: EdgeInsets.symmetric(
-              horizontal: ScreenUtil().setWidth(20),
-              vertical: ScreenUtil().setHeight(5)),
+              horizontal: ScreenUtil().setWidth(20.w),
+              vertical: ScreenUtil().setHeight(5.h)),
           child: Column(
             children: [
               Center(
                 child: CustomText(
                     text: AppStrings.selectTopics,
                     textAlign: TextAlign.center,
-                    fontSize: 14,
+                    fontSize: 11,
                     textColor: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: ScreenUtil().setHeight(10),
+                height: ScreenUtil().setHeight(10.h),
               ),
               GridView.builder(
                   shrinkWrap: true,
@@ -94,7 +94,7 @@ class ChooseInterestPageState extends State<ChooseInterestPage> {
                           child: CustomText(
                               text: topicsList[index].topicName,
                               textAlign: TextAlign.center,
-                              fontSize: 13,
+                              fontSize: 10,
                               textColor: topicsList[index].selected
                                   ? Colors.white
                                   : Colors.black,
@@ -104,24 +104,25 @@ class ChooseInterestPageState extends State<ChooseInterestPage> {
                     );
                   }),
               SizedBox(
-                height: ScreenUtil().setHeight(20),
+                height: ScreenUtil().setHeight(20.h),
               ),
               CustomButton(
                 buttonName: AppStrings.next,
-                fontSize: 13,
+                fontSize: 10,
                 fontWeight: FontWeight.w600,
                 textColor: Colors.white,
                 textAlign: TextAlign.center,
                 shapeBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(ScreenUtil().radius(30)),
+                  borderRadius:
+                      BorderRadius.circular(ScreenUtil().radius(30.r)),
                 ),
                 background: AppColors.tahitiGold,
                 elevation: 0,
                 width: double.infinity,
-                height: 40,
+                height: 35,
                 routeName: "home",
                 itemsSlected: itemsSlected,
-                fontSizeSnack: 14,
+                fontSizeSnack: 11,
                 fontWeightSnack: FontWeight.w600,
                 snackbackground: Colors.red,
                 textAlignSnack: TextAlign.start,
@@ -129,7 +130,7 @@ class ChooseInterestPageState extends State<ChooseInterestPage> {
                 textData: AppStrings.errorMessage,
               ),
               SizedBox(
-                height: ScreenUtil().setHeight(10),
+                height: ScreenUtil().setHeight(10.h),
               )
             ],
           ),

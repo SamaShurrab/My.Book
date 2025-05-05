@@ -63,8 +63,8 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                 child: Padding(
                   padding: EdgeInsets.all(20),
                   child: CustomImageSvg(
-                      height: 110,
-                      width: 110,
+                      height: 100,
+                      width: 100,
                       imagePath: 'images/logo.svg',
                       imageColor: Colors.white),
                 ),
@@ -73,33 +73,35 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                   flex: 7,
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: ScreenUtil().setWidth(20)),
+                        horizontal: ScreenUtil().setWidth(15.w)),
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(ScreenUtil().radius(20)),
-                            topLeft: Radius.circular(ScreenUtil().radius(20)))),
+                            topRight:
+                                Radius.circular(ScreenUtil().radius(10.r)),
+                            topLeft:
+                                Radius.circular(ScreenUtil().radius(10.r)))),
                     child: ListView(
                       physics: BouncingScrollPhysics(),
                       children: [
                         CustomText(
                             text: AppStrings.resetPassword,
                             textAlign: TextAlign.start,
-                            fontSize: 16,
+                            fontSize: 13,
                             textColor: Colors.black,
                             fontWeight: FontWeight.w700),
                         SizedBox(
-                          height: ScreenUtil().setHeight(8),
+                          height: ScreenUtil().setHeight(5.h),
                         ),
                         CustomText(
                             text: AppStrings.resetPasswordDescription,
                             textAlign: TextAlign.start,
-                            fontSize: 12,
+                            fontSize: 10,
                             textColor: Colors.black,
                             fontWeight: FontWeight.w500),
                         SizedBox(
-                          height: ScreenUtil().setHeight(20),
+                          height: ScreenUtil().setHeight(15.h),
                         ),
                         Form(
                           key: formKey,
@@ -107,11 +109,11 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               CustomTextFormField(
-                                bottom: 12.0,
+                                bottom: 8.0,
                                 textAlignVertical: TextAlignVertical.center,
                                 controller: newPasswordController,
                                 textAlign: TextAlign.start,
-                                fontSize: 12,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.black,
                                 horizontal: 20.0,
@@ -120,32 +122,32 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                 errorTextColor: Colors.red,
                                 focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 textInputAction: TextInputAction.next,
                                 iconSize: 25.0,
                                 textInputType: TextInputType.number,
                                 obscureText: true,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.tahitiGold,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 hintText: AppStrings.newPassword,
                                 textColorHint: AppColors.hintTextColor,
                                 fontSizeHint: 14.0,
@@ -155,14 +157,14 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                 suffixIconColor: AppColors.tahitiGold,
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(15),
+                                height: ScreenUtil().setHeight(10.h),
                               ),
                               CustomTextFormField(
-                                bottom: 12.0,
+                                bottom: 8.0,
                                 textAlignVertical: TextAlignVertical.center,
                                 controller: confirmPasswordController,
                                 textAlign: TextAlign.start,
-                                fontSize: 12,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.black,
                                 horizontal: 20.0,
@@ -171,32 +173,32 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                 errorTextColor: Colors.red,
                                 focusedErrorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 errorBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: Colors.red,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 textInputAction: TextInputAction.done,
                                 iconSize: 25.0,
                                 textInputType: TextInputType.number,
                                 obscureText: true,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.tahitiGold,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
-                                        ScreenUtil().radius(30)),
+                                        ScreenUtil().radius(30.r)),
                                     borderSide: BorderSide(
                                         color: AppColors.snow,
-                                        width: ScreenUtil().setWidth(1))),
+                                        width: ScreenUtil().setWidth(1.w))),
                                 hintText: AppStrings.confirmPassword,
                                 textColorHint: AppColors.hintTextColor,
                                 fontSizeHint: 14.0,
@@ -206,7 +208,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                 suffixIconColor: AppColors.tahitiGold,
                               ),
                               SizedBox(
-                                height: ScreenUtil().setHeight(20),
+                                height: ScreenUtil().setHeight(20.h),
                               ),
                               FormSubmitButton(
                                 formKey: formKey,
@@ -221,7 +223,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
 
                                   // Slight delay to ensure keyboard is closed
                                   await Future.delayed(
-                                      const Duration(milliseconds: 60));
+                                      const Duration(milliseconds: 100));
                                   String newPassowrd =
                                       newPasswordController.text;
                                   String confirmPassword =
@@ -258,7 +260,7 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                       content: CustomText(
                                           text: AppStrings.notSimialr,
                                           textAlign: TextAlign.start,
-                                          fontSize: 13,
+                                          fontSize: 10,
                                           textColor: Colors.white,
                                           fontWeight: FontWeight.w600),
                                       backgroundColor: Colors.red,
@@ -266,24 +268,24 @@ class ResetPasswordPageState extends State<ResetPasswordPage> {
                                   }
                                 },
                                 buttonName: AppStrings.continueBtn,
-                                fontSize: 13,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
                                 textColor: Colors.white,
                                 textAlign: TextAlign.center,
                                 shapeBorder: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(
-                                      ScreenUtil().radius(30)),
+                                      ScreenUtil().radius(30.r)),
                                 ),
                                 background: AppColors.tahitiGold,
                                 elevation: 0,
                                 width: double.infinity,
-                                height: 45,
+                                height: 35,
                               ),
                             ],
                           ),
                         ),
                         SizedBox(
-                          height: ScreenUtil().setHeight(20),
+                          height: ScreenUtil().setHeight(20.h),
                         ),
                       ],
                     ),

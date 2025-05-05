@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/create_route.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
 import 'package:my_book_app/Pages/books_page.dart';
 import 'package:my_book_app/Pages/home_page.dart';
@@ -6,18 +7,6 @@ import 'package:my_book_app/Pages/profile_page.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Values/string.dart';
 import 'wishlist_page.dart';
-
-/*
- A function that creates a custom transition path that 
- displays the new page with bottom corners clipped using ClipRRect.
-*/
-Route createRouteAudioBooks(Widget destination) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) {
-      return CustomClipRRectBottom(child: destination);
-    },
-  );
-} //createRouteAudioBooks()
 
 class AudioBooksPage extends StatefulWidget {
   const AudioBooksPage({super.key});
@@ -61,18 +50,18 @@ class AudioBooksPageState extends State<AudioBooksPage> {
               });
               if (index == 0) {
                 Navigator.of(context).pushAndRemoveUntil(
-                  createRouteAudioBooks(BooksPage()),
+                  createRoute(BooksPage()),
                   (route) => false,
                 );
               } else if (index == 1) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    createRouteAudioBooks(WishlistPage()), (route) => false);
+                    createRoute(WishlistPage()), (route) => false);
               } else if (index == 2) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    createRouteAudioBooks(HomePage()), (route) => false);
+                    createRoute(HomePage()), (route) => false);
               } else if (index == 4) {
                 Navigator.of(context).pushAndRemoveUntil(
-                    createRouteAudioBooks(ProfilePage()), (route) => false);
+                    createRoute(ProfilePage()), (route) => false);
               }
             },
             currentIndex: currentIndex,
@@ -85,7 +74,7 @@ class AudioBooksPageState extends State<AudioBooksPage> {
             title: CustomText(
                 text: AppStrings.audioBooks,
                 textAlign: TextAlign.center,
-                fontSize: 16,
+                fontSize: 13,
                 textColor: Colors.black,
                 fontWeight: FontWeight.w700),
           ),

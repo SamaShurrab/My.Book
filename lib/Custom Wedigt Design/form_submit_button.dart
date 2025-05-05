@@ -39,8 +39,8 @@ class FormSubmitButtonState extends State<FormSubmitButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: ScreenUtil().setWidth(widget.width),
-      height: ScreenUtil().setHeight(widget.height),
+      width: ScreenUtil().setWidth(widget.width.w),
+      height: ScreenUtil().setHeight(widget.height.h),
       child: MaterialButton(
         elevation: widget.elevation,
         color: widget.background,
@@ -56,7 +56,7 @@ class FormSubmitButtonState extends State<FormSubmitButton> {
           widget.buttonName,
           textAlign: widget.textAlign,
           style: TextStyle(
-              fontSize: ScreenUtil().setSp(widget.fontSize),
+              fontSize: ScreenUtil().setSp(widget.fontSize.sp),
               fontWeight: widget.fontWeight,
               color: widget.textColor),
         ),

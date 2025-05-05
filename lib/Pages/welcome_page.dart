@@ -19,104 +19,106 @@ class WekcomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: ScreenUtil().setHeight(20),
+              height: ScreenUtil().setHeight(15.h),
             ),
             Center(
               child: CustomText(
                   text: AppStrings.appName,
                   textAlign: TextAlign.center,
-                  fontSize: 25,
+                  fontSize: 20,
                   textColor: Colors.black,
                   fontWeight: FontWeight.w700),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(30),
+              height: ScreenUtil().setHeight(25.h),
             ),
             Center(
                 child: Padding(
               padding:
-                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(15)),
+                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(15.w)),
               child: AssetImageWidget(
                 imagePath: 'images/welcome.png',
               ),
             )),
             SizedBox(
-              height: ScreenUtil().setHeight(40),
+              height: ScreenUtil().setHeight(35.h),
             ),
             Padding(
-              padding: EdgeInsets.only(left: ScreenUtil().setWidth(30)),
+              padding: EdgeInsets.only(left: ScreenUtil().setWidth(20.w)),
               child: CustomText(
                   text: AppStrings.welcomeText,
                   textAlign: TextAlign.start,
-                  fontSize: 15,
+                  fontSize: 13,
                   textColor: Colors.black,
-                  fontWeight: FontWeight.w700),
+                  fontWeight: FontWeight.w600),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(10),
+              height: ScreenUtil().setHeight(5.h),
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: ScreenUtil().setWidth(30),
-                  right: ScreenUtil().setWidth(30)),
+                  left: ScreenUtil().setWidth(20.w),
+                  right: ScreenUtil().setWidth(20.w)),
               child: CustomText(
                   text: AppStrings.welcomePageDescription,
                   textAlign: TextAlign.start,
                   height: 1.5,
-                  fontSize: 12,
+                  fontSize: 10,
                   textColor: Colors.black,
                   fontWeight: FontWeight.w500),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(20),
+              height: ScreenUtil().setHeight(20.h),
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: ScreenUtil().setWidth(15),
-                  right: ScreenUtil().setWidth(15)),
+                  left: ScreenUtil().setWidth(15.w),
+                  right: ScreenUtil().setWidth(15.w)),
               child: CustomButton(
                 routeName: "signin",
                 buttonName: AppStrings.login,
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
                 textColor: Colors.black,
                 textAlign: TextAlign.center,
                 shapeBorder: RoundedRectangleBorder(
                     borderRadius:
-                        BorderRadius.circular(ScreenUtil().radius(30)),
+                        BorderRadius.circular(ScreenUtil().radius(30.r)),
                     side: BorderSide(
-                        color: Colors.black, width: ScreenUtil().setWidth(1))),
+                        color: Colors.black,
+                        width: ScreenUtil().setWidth(1.w))),
                 background: Colors.white,
                 elevation: 0,
                 width: double.infinity,
-                height: 50,
+                height: 35,
               ),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(10),
+              height: ScreenUtil().setHeight(10.h),
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: ScreenUtil().setWidth(15),
-                  right: ScreenUtil().setWidth(15)),
+                  left: ScreenUtil().setWidth(15.w),
+                  right: ScreenUtil().setWidth(15.w)),
               child: CustomButton(
                 routeName: "register",
                 buttonName: AppStrings.registeration,
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
                 textColor: Colors.white,
                 textAlign: TextAlign.center,
                 shapeBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(ScreenUtil().radius(30)),
+                  borderRadius:
+                      BorderRadius.circular(ScreenUtil().radius(30.r)),
                 ),
                 background: AppColors.tahitiGold,
                 elevation: 0,
                 width: double.infinity,
-                height: 50,
+                height: 35,
               ),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(10),
+              height: ScreenUtil().setHeight(10.h),
             ),
           ],
         ),

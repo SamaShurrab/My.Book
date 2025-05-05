@@ -2,24 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
 import 'package:my_book_app/Pages/home_page.dart';
+import '../Custom Wedigt Design/create_route.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Values/colors.dart';
 import '../Values/string.dart';
 import 'audio_books_page.dart';
 import 'books_page.dart';
 import 'profile_page.dart';
-
-/*
- A function that creates a custom transition path that 
- displays the new page with a Fade effect and bottom corners clipped using ClipRRect.
-*/
-Route createRouteWishlist(Widget destination) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) {
-      return CustomClipRRectBottom(child: destination);
-    },
-  );
-} //createRouteWishlist()
 
 class WishlistPage extends StatefulWidget {
   const WishlistPage({super.key});
@@ -60,18 +49,18 @@ class WishlistPageState extends State<WishlistPage> {
                   });
                   if (index == 0) {
                     Navigator.of(context).pushAndRemoveUntil(
-                      createRouteHome(BooksPage()),
+                      createRoute(BooksPage()),
                       (route) => false,
                     );
                   } else if (index == 2) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        createRouteHome(HomePage()), (route) => false);
+                        createRoute(HomePage()), (route) => false);
                   } else if (index == 3) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        createRouteHome(AudioBooksPage()), (route) => false);
+                        createRoute(AudioBooksPage()), (route) => false);
                   } else if (index == 4) {
                     Navigator.of(context).pushAndRemoveUntil(
-                        createRouteHome(ProfilePage()), (route) => false);
+                        createRoute(ProfilePage()), (route) => false);
                   }
                 },
                 elevation: 0,
@@ -87,7 +76,7 @@ class WishlistPageState extends State<WishlistPage> {
                 title: CustomText(
                     text: AppStrings.wishlist,
                     textAlign: TextAlign.center,
-                    fontSize: 16,
+                    fontSize: 13,
                     textColor: Colors.black,
                     fontWeight: FontWeight.w700),
                 leading: null,

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_book_app/Values/string.dart';
 
 import '../Custom Wedigt Design/custom_text.dart';
-import '../Values/string.dart';
 
-class ArchivesPage extends StatefulWidget {
-  const ArchivesPage({super.key});
+class ShoppingCartPage extends StatefulWidget {
+  const ShoppingCartPage({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return ArchivesPageState();
-  } //createState ()
-} //ArchivesPage class
+    return ShoppingCartPageState();
+  } //createState()
+} //ShoppingCartPage class
 
-class ArchivesPageState extends State<ArchivesPage> {
+class ShoppingCartPageState extends State<ShoppingCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,23 +31,26 @@ class ArchivesPageState extends State<ArchivesPage> {
           ),
         ),
         centerTitle: true,
+        actions: [
+          InkWell(
+            onTap: () {},
+            child: Icon(
+              Icons.delete_outline,
+              size: 25,
+              color: Colors.black54,
+            ),
+          ),
+          SizedBox(
+            width: ScreenUtil().setWidth(10.w),
+          ),
+        ],
         title: CustomText(
-            text: AppStrings.archives,
+            text: AppStrings.shoppingCart,
             textAlign: TextAlign.center,
             fontSize: 13,
             textColor: Colors.black,
             fontWeight: FontWeight.w700),
       ),
-      body: BookInformation(
-        pageName: "archives",
-        height: double.infinity,
-        shrinkWrap: false,
-        scrollDirection: Axis.vertical,
-        crossAxisCount: 2,
-        mainAxisExtent: 300,
-        crossAxisSpacing: 0,
-        mainAxisSpacing: 0,
-      ),
     );
   } //build()
-}//ArchivesPageState class
+}//ShoppingCartPageState class

@@ -20,8 +20,8 @@ class CustomImageSvg extends StatelessWidget {
     return Image(
       image: Svg(imagePath),
       color: imageColor,
-      height: ScreenUtil().setHeight(height),
-      width: ScreenUtil().setWidth(width),
+      height: ScreenUtil().setHeight(height.h),
+      width: ScreenUtil().setWidth(width.w),
     );
   } //build()
 }//CustomImage class

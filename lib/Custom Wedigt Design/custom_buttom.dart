@@ -52,8 +52,8 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: ScreenUtil().setWidth(width),
-      height: ScreenUtil().setHeight(height),
+      width: ScreenUtil().setWidth(width.w),
+      height: ScreenUtil().setHeight(height.h),
       child: MaterialButton(
         elevation: elevation,
         color: background,
@@ -67,8 +67,7 @@ class CustomButton extends StatelessWidget {
 
               // When you press the logout button, you will exit the application.
               if (routeName == "logout") {
-                SystemNavigator.pop(); 
-                
+                SystemNavigator.pop();
               } else if (routeName == "register" || routeName == "signin") {
                 Navigator.of(context).pushReplacementNamed(routeName!);
 
@@ -98,7 +97,7 @@ class CustomButton extends StatelessWidget {
           buttonName,
           textAlign: textAlign,
           style: TextStyle(
-            fontSize: ScreenUtil().setSp(fontSize),
+            fontSize: ScreenUtil().setSp(fontSize.sp),
             fontWeight: fontWeight,
             color: textColor,
           ),

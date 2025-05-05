@@ -8,6 +8,7 @@ import 'package:my_book_app/Pages/edit_profile_page.dart';
 import 'package:my_book_app/Pages/privacy_policy_page.dart';
 import 'package:my_book_app/Pages/profile_page.dart';
 import 'package:my_book_app/Pages/report_bug_page.dart';
+import 'package:my_book_app/Pages/shopping_cart_page.dart';
 import 'package:my_book_app/Pages/wishlist_page.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'Pages/home_page.dart';
@@ -51,6 +52,10 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+            drawerTheme: DrawerThemeData(
+                elevation: 0,
+                backgroundColor: Colors.white,
+                surfaceTintColor: Colors.white),
             tabBarTheme: TabBarTheme(
               overlayColor: WidgetStateProperty.all(Colors.transparent),
               dividerColor: Colors.transparent,
@@ -96,7 +101,8 @@ class MyApp extends StatelessWidget {
           "books": (context) => BooksPage(),
           "reportBug": (context) => ReportBugPage(),
           "chooseInterest": (context) => ChooseInterestPage(),
-          "archives": (context) => ArchivesPage()
+          "archives": (context) => ArchivesPage(),
+          "shoppingCart": (context) => ShoppingCartPage()
         },
       ),
     );

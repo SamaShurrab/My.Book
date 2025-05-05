@@ -107,8 +107,6 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
           return AppStrings.emailAddressEmpty;
         case "Phone Number":
           return AppStrings.phoneNumberEmpty;
-        case "*":
-          return "";
         default:
           return AppStrings.emptyField;
       } // switch()
@@ -149,7 +147,7 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
       textAlignVertical: widget.textAlignVertical,
       textAlign: widget.textAlign,
       style: TextStyle(
-          fontSize: ScreenUtil().setSp(widget.fontSize),
+          fontSize: ScreenUtil().setSp(widget.fontSize.sp),
           color: widget.textColor,
           fontWeight: widget.fontWeight),
       maxLength: widget.maxLength,
@@ -177,10 +175,10 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
           focusedBorder: widget.focusedBorder,
           hintText: widget.hintText,
           contentPadding: EdgeInsets.only(
-              top: ScreenUtil().setHeight(widget.vertical),
-              left: ScreenUtil().setWidth(widget.horizontal),
-              right: ScreenUtil().setWidth(widget.horizontal),
-              bottom: ScreenUtil().setHeight(widget.bottom)),
+              top: ScreenUtil().setHeight(widget.vertical.h),
+              left: ScreenUtil().setWidth(widget.horizontal.w),
+              right: ScreenUtil().setWidth(widget.horizontal.w),
+              bottom: ScreenUtil().setHeight(widget.bottom.h)),
           hintStyle: TextStyle(
             color: widget.textColorHint,
             fontSize: widget.fontSizeHint,
@@ -191,7 +189,7 @@ class CustomTextFormFieldState extends State<CustomTextFormField> {
           suffixIcon: widget.suffixIcon == null
               ? null
               : Padding(
-                  padding: EdgeInsets.only(right: ScreenUtil().setWidth(10)),
+                  padding: EdgeInsets.only(right: ScreenUtil().setWidth(10.w)),
                   child: widget.textInputType == TextInputType.text ||
                           widget.textInputType == TextInputType.emailAddress ||
                           widget.hintText == "Phone Number"

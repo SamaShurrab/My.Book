@@ -3,6 +3,8 @@ class Book {
   final String bookTitle;
   final String authorName;
   final String bookImage;
+  final double rating;
+  final String bookDescription;
   bool isFavorite;
   bool isSaved;
 
@@ -11,5 +13,7 @@ class Book {
       required this.bookImage,
       required this.authorName,
       this.isFavorite = false,
-      this.isSaved = false});
+      this.isSaved = false,
+      required this.rating,
+      required this.bookDescription});
 }

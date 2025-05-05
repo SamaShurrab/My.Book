@@ -57,7 +57,7 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
         title: CustomText(
             text: AppStrings.privacyPolicy,
             textAlign: TextAlign.start,
-            fontSize: 16,
+            fontSize: 13,
             textColor: Colors.black,
             fontWeight: FontWeight.w700),
         leading: InkWell(
@@ -66,27 +66,27 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               Navigator.of(context).pop();
             },
             child: Icon(
-              Icons.chevron_left_rounded,
-              size: 35,
+              Icons.arrow_back_ios_new,
+              size: 25,
               color: Colors.black,
             )),
       ),
       body: Container(
         margin: EdgeInsets.symmetric(
-            horizontal: ScreenUtil().setWidth(20),
-            vertical: ScreenUtil().setHeight(10)),
+            horizontal: ScreenUtil().setWidth(15.w),
+            vertical: ScreenUtil().setHeight(10.h)),
         child: Column(
           children: [
             Expanded(
               child: CustomText(
                   text: AppStrings.privacyDescription,
                   textAlign: TextAlign.center,
-                  fontSize: 13,
+                  fontSize: 10,
                   textColor: Colors.black,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(10),
+              height: ScreenUtil().setHeight(5.h),
             ),
             Expanded(
               flex: 3,
@@ -102,18 +102,18 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                             color: AppColors.tahitiGold,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: ScreenUtil().setHeight(5),
-                                  horizontal: ScreenUtil().setWidth(10)),
+                                  vertical: ScreenUtil().setHeight(2.h),
+                                  horizontal: ScreenUtil().setWidth(10.w)),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Expanded(
-                                    flex: 5,
+                                    flex: 7,
                                     child: CustomText(
                                         text:
                                             "${privacyList[index]["privacyTitle"]}",
                                         textAlign: TextAlign.start,
-                                        fontSize: 13,
+                                        fontSize: 9,
                                         textColor: Colors.white,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -145,20 +145,20 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                         if (isExpandedList[index])
                           Container(
                             margin: EdgeInsets.symmetric(
-                                horizontal: ScreenUtil().setWidth(10)),
+                                horizontal: ScreenUtil().setWidth(10.w)),
                             width: double.infinity,
                             child: Card(
                               color: Colors.white,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                    vertical: ScreenUtil().setHeight(10),
-                                    horizontal: ScreenUtil().setWidth(10)),
+                                    vertical: ScreenUtil().setHeight(10.h),
+                                    horizontal: ScreenUtil().setWidth(10.w)),
                                 child: CustomText(
                                     height: 1.8,
                                     text:
                                         "${privacyList[index]["privacyDescription"]}",
                                     textAlign: TextAlign.start,
-                                    fontSize: 13,
+                                    fontSize: 10,
                                     textColor: Colors.black,
                                     fontWeight: FontWeight.w500),
                               ),

@@ -16,13 +16,13 @@ class LogoutDialog {
           backgroundColor: Colors.white,
           icon: Icon(
             Icons.logout_outlined,
-            size: 30,
+            size: 35,
             color: AppColors.tahitiGold,
           ),
           title: CustomText(
               text: AppStrings.logout,
               textAlign: TextAlign.center,
-              fontSize: 16,
+              fontSize: 14,
               textColor: Colors.black,
               fontWeight: FontWeight.w700),
           content: Column(
@@ -31,41 +31,45 @@ class LogoutDialog {
               CustomText(
                   text: AppStrings.logoutDescription,
                   textAlign: TextAlign.center,
-                  fontSize: 12,
+                  fontSize: 10,
                   textColor: Colors.black,
                   fontWeight: FontWeight.w600),
-              SizedBox(height: 10),
+              SizedBox(height: ScreenUtil().setHeight(10.h)),
               CustomButton(
                 routeName: "signin",
                 buttonName: AppStrings.logout,
-                fontSize: 13,
+                fontSize: 10,
                 fontWeight: FontWeight.w700,
                 textColor: Colors.white,
                 textAlign: TextAlign.center,
                 shapeBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  side: BorderSide(color: AppColors.tahitiGold, width: 1),
+                  borderRadius: BorderRadius.circular(30.r),
+                  side: BorderSide(
+                      color: AppColors.tahitiGold,
+                      width: ScreenUtil().setWidth(1.w)),
                 ),
                 elevation: 0,
                 background: AppColors.tahitiGold,
-                height: 40,
+                height: 35,
                 width: double.infinity,
               ),
-              SizedBox(height: 10),
+              SizedBox(height: ScreenUtil().setHeight(10.h)),
               CustomButton(
                 routeName: "",
                 buttonName: AppStrings.cancel,
-                fontSize: 13,
+                fontSize: 10,
                 fontWeight: FontWeight.w700,
                 textColor: Colors.black,
                 textAlign: TextAlign.center,
                 shapeBorder: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.r),
-                  side: BorderSide(color: AppColors.tahitiGold, width: 1),
+                  side: BorderSide(
+                      color: AppColors.tahitiGold,
+                      width: ScreenUtil().setWidth(1.w)),
                 ),
                 elevation: 0,
                 background: Colors.white,
-                height: 40,
+                height: 35,
                 width: double.infinity,
                 onPressed: () {
                   Navigator.of(context).pop();

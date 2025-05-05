@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/book_information.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_cliprpect_bottom.dart';
+import '../Custom Wedigt Design/create_route.dart';
 import '../Custom Wedigt Design/custom_text.dart';
 import '../Values/string.dart';
 import 'audio_books_page.dart';
 import 'home_page.dart';
 import 'profile_page.dart';
 import 'wishlist_page.dart';
-
-/*
- A function that creates a custom transition path that 
- displays the new page with  bottom corners clipped using ClipRRect.
-*/
-Route createRouteBooks(Widget destination) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) {
-      return CustomClipRRectBottom(child: destination);
-    },
-  );
-} //createRouteBooks()
 
 class BooksPage extends StatefulWidget {
   const BooksPage({super.key});
@@ -61,18 +50,18 @@ class BooksPageState extends State<BooksPage> {
             });
             if (index == 2) {
               Navigator.of(context).pushAndRemoveUntil(
-                createRouteBooks(HomePage()),
+                createRoute(HomePage()),
                 (route) => false,
               );
             } else if (index == 1) {
               Navigator.of(context).pushAndRemoveUntil(
-                  createRouteBooks(WishlistPage()), (route) => false);
+                  createRoute(WishlistPage()), (route) => false);
             } else if (index == 3) {
               Navigator.of(context).pushAndRemoveUntil(
-                  createRouteBooks(AudioBooksPage()), (route) => false);
+                  createRoute(AudioBooksPage()), (route) => false);
             } else if (index == 4) {
               Navigator.of(context).pushAndRemoveUntil(
-                  createRouteBooks(ProfilePage()), (route) => false);
+                  createRoute(ProfilePage()), (route) => false);
             }
           },
           currentIndex: currentIndex,
@@ -85,7 +74,7 @@ class BooksPageState extends State<BooksPage> {
           title: CustomText(
               text: AppStrings.books,
               textAlign: TextAlign.center,
-              fontSize: 16,
+              fontSize: 13,
               textColor: Colors.black,
               fontWeight: FontWeight.w700),
         ),

@@ -17,33 +17,33 @@ class CustomSuccessfulDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            height: ScreenUtil().setHeight(20),
+            height: ScreenUtil().setHeight(20.h),
           ),
           SizedBox(
-              height: ScreenUtil().setHeight(200),
+              height: ScreenUtil().setHeight(200.h),
               child: AssetImageWidget(imagePath: "images/successful.png")),
-          SizedBox(height: ScreenUtil().setHeight(20)),
+          SizedBox(height: ScreenUtil().setHeight(10.h)),
           CustomText(
               text: AppStrings.congratulations,
               textAlign: TextAlign.center,
-              fontSize: 16,
+              fontSize: 14,
               textColor: Colors.black,
               fontWeight: FontWeight.w700),
           SizedBox(
-            height: ScreenUtil().setHeight(5),
+            height: ScreenUtil().setHeight(5.h),
           ),
           Padding(
             padding:
-                EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10)),
+                EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10.w)),
             child: CustomText(
                 text: AppStrings.successfulMesaage,
                 textAlign: TextAlign.center,
-                fontSize: 12,
+                fontSize: 11,
                 textColor: Colors.black,
                 fontWeight: FontWeight.w500),
           ),
           SizedBox(
-            height: ScreenUtil().setHeight(20),
+            height: ScreenUtil().setHeight(20.h),
           ),
         ],
       ),

@@ -8,21 +8,10 @@ import 'package:my_book_app/Pages/terms_and_conditions_page.dart';
 import 'package:my_book_app/Values/colors.dart';
 import 'package:my_book_app/Values/string.dart';
 
+import '../Custom Wedigt Design/create_route.dart';
 import 'books_page.dart';
 import 'home_page.dart';
 import 'wishlist_page.dart';
-
-/*
- A function that creates a custom transition path that 
- displays the new page with a Fade effect and bottom corners clipped using ClipRRect.
-*/
-Route createRouteProfile(Widget destination) {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) {
-      return CustomClipRRectBottom(child: destination);
-    },
-  );
-} //createRouteProfile()
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -85,7 +74,7 @@ class ProfilePageState extends State<ProfilePage> {
                 } //if()
                 // To move between interfaces through bottomNavigationBar
                 Navigator.of(context).pushReplacement(
-                  createRouteProfile(pages[index]),
+                  createRoute(pages[index]),
                 );
               } //for()
             },
@@ -104,14 +93,14 @@ class ProfilePageState extends State<ProfilePage> {
             title: CustomText(
                 text: AppStrings.profile,
                 textAlign: TextAlign.center,
-                fontSize: 16,
+                fontSize: 13,
                 textColor: Colors.black,
                 fontWeight: FontWeight.w700),
           ),
           body: Container(
               margin: EdgeInsets.symmetric(
-                  horizontal: ScreenUtil().setWidth(20),
-                  vertical: ScreenUtil().setHeight(20)),
+                  horizontal: ScreenUtil().setWidth(15.w),
+                  vertical: ScreenUtil().setHeight(15.h)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -120,12 +109,12 @@ class ProfilePageState extends State<ProfilePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       CircleAvatar(
-                        radius: ScreenUtil().radius(35),
+                        radius: ScreenUtil().radius(25.r),
                         backgroundImage: AssetImage("images/user_img.png"),
                         backgroundColor: Colors.transparent,
                       ),
                       SizedBox(
-                        width: ScreenUtil().setWidth(20),
+                        width: ScreenUtil().setWidth(10.w),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.min,
@@ -134,7 +123,7 @@ class ProfilePageState extends State<ProfilePage> {
                           CustomText(
                               text: "Sama Shurrab",
                               textAlign: TextAlign.start,
-                              fontSize: 14,
+                              fontSize: 11,
                               textColor: Colors.black,
                               fontWeight: FontWeight.w600),
                           SizedBox(
@@ -143,7 +132,7 @@ class ProfilePageState extends State<ProfilePage> {
                           CustomText(
                               text: "smshorap@gmail.com",
                               textAlign: TextAlign.start,
-                              fontSize: 13,
+                              fontSize: 10,
                               textColor: AppColors.hintTextColor,
                               fontWeight: FontWeight.w600),
                         ],
@@ -151,7 +140,7 @@ class ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                   SizedBox(
-                    height: ScreenUtil().setHeight(25),
+                    height: ScreenUtil().setHeight(20.h),
                   ),
                   ListView.separated(
                       shrinkWrap: true,
@@ -179,7 +168,7 @@ class ProfilePageState extends State<ProfilePage> {
                             } else if (profileList[index] ==
                                 AppStrings.wishlist) {
                               Navigator.of(context).pushAndRemoveUntil(
-                                createRouteProfile(WishlistPage()),
+                                createRoute(WishlistPage()),
                                 (route) => false,
                               );
                             } else if (profileList[index] ==
@@ -190,7 +179,7 @@ class ProfilePageState extends State<ProfilePage> {
                           child: CustomText(
                               text: profileList[index],
                               textAlign: TextAlign.start,
-                              fontSize: 14,
+                              fontSize: 12,
                               textColor: Colors.black,
                               fontWeight: FontWeight.w600),
                         );
@@ -198,7 +187,7 @@ class ProfilePageState extends State<ProfilePage> {
                       separatorBuilder: (context, index) {
                         return Divider(
                           color: AppColors.hintTextColor,
-                          height: ScreenUtil().setHeight(30),
+                          height: ScreenUtil().setHeight(25.h),
                         );
                       },
                       itemCount: profileList.length)

@@ -55,7 +55,7 @@ class EditProfilePageState extends State<EditProfilePage> {
         title: CustomText(
             text: AppStrings.editProfile,
             textAlign: TextAlign.start,
-            fontSize: 16,
+            fontSize: 13,
             textColor: Colors.black,
             fontWeight: FontWeight.w700),
         leading: InkWell(
@@ -64,48 +64,47 @@ class EditProfilePageState extends State<EditProfilePage> {
               Navigator.of(context).pop();
             },
             child: Icon(
-              Icons.chevron_left_rounded,
-              size: 35,
+              Icons.arrow_back_ios_new,
+              size: 25,
               color: Colors.black,
             )),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
+        margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20.w)),
         child: ListView(
-          physics: BouncingScrollPhysics(),
           children: [
             imagePath != null
                 ? CircleAvatar(
-                    radius: ScreenUtil().radius(60),
+                    radius: ScreenUtil().radius(60.r),
                     backgroundColor: Colors.grey[300],
                     child: ClipOval(
                       child: Image.file(
                         imagePath!,
-                        width: ScreenUtil().setWidth(105),
-                        height: ScreenUtil().setHeight(105),
+                        width: ScreenUtil().setWidth(100.w),
+                        height: ScreenUtil().setHeight(110.h),
                         fit: BoxFit.cover,
                       ),
                     ),
                   )
                 : CircleAvatar(
-                    radius: ScreenUtil().radius(50),
+                    radius: ScreenUtil().radius(40.r),
                     backgroundColor: Colors.grey[300],
                     child: ClipOval(
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: ScreenUtil().setWidth(10),
-                            vertical: ScreenUtil().setWidth(10)),
+                            horizontal: ScreenUtil().setWidth(10.h),
+                            vertical: ScreenUtil().setWidth(10.w)),
                         child: Image.asset(
                           'images/user_img.png',
-                          width: ScreenUtil().setWidth(100),
-                          height: ScreenUtil().setHeight(100),
+                          width: ScreenUtil().setWidth(100.w),
+                          height: ScreenUtil().setHeight(110.h),
                           fit: BoxFit.contain,
                         ),
                       ),
                     ),
                   ),
             SizedBox(
-              height: ScreenUtil().setHeight(10),
+              height: ScreenUtil().setHeight(8.h),
             ),
             InkWell(
               splashColor: Colors.transparent,
@@ -121,7 +120,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                               CustomText(
                                   text: AppStrings.choose,
                                   textAlign: TextAlign.start,
-                                  fontSize: 16,
+                                  fontSize: 12,
                                   textColor: Colors.black,
                                   fontWeight: FontWeight.w600),
                               IconButton(
@@ -152,12 +151,12 @@ class EditProfilePageState extends State<EditProfilePage> {
                                       color: Colors.black,
                                     ),
                                     SizedBox(
-                                      height: ScreenUtil().setHeight(10),
+                                      height: ScreenUtil().setHeight(10.h),
                                     ),
                                     CustomText(
                                         text: AppStrings.camera,
                                         textAlign: TextAlign.center,
-                                        fontSize: 14,
+                                        fontSize: 10,
                                         textColor: Colors.black,
                                         fontWeight: FontWeight.w600)
                                   ],
@@ -165,7 +164,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                               ),
                             ),
                             SizedBox(
-                              width: ScreenUtil().setWidth(10),
+                              width: ScreenUtil().setWidth(5.w),
                             ),
                             Expanded(
                               child: InkWell(
@@ -180,12 +179,12 @@ class EditProfilePageState extends State<EditProfilePage> {
                                       color: Colors.black,
                                     ),
                                     SizedBox(
-                                      height: ScreenUtil().setHeight(10),
+                                      height: ScreenUtil().setHeight(10.h),
                                     ),
                                     CustomText(
                                         text: AppStrings.gallery,
                                         textAlign: TextAlign.center,
-                                        fontSize: 14,
+                                        fontSize: 10,
                                         textColor: Colors.black,
                                         fontWeight: FontWeight.w600)
                                   ],
@@ -200,12 +199,12 @@ class EditProfilePageState extends State<EditProfilePage> {
               child: CustomText(
                   text: AppStrings.changePicture,
                   textAlign: TextAlign.center,
-                  fontSize: 12,
+                  fontSize: 11,
                   textColor: Colors.black,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(30),
+              height: ScreenUtil().setHeight(20.h),
             ),
             Form(
               key: formKey,
@@ -216,23 +215,23 @@ class EditProfilePageState extends State<EditProfilePage> {
                   CustomTextFormField(
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.start,
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w600,
                     textColor: Colors.black,
                     horizontal: 20.0,
                     vertical: 12.0,
-                    bottom: 12.0,
+                    bottom: 8.0,
                     errorFontSize: 11.0,
                     errorTextColor: Colors.red,
                     focusedErrorBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: Colors.red,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     errorBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: Colors.red,
                             width: ScreenUtil().setWidth(1))),
@@ -242,16 +241,16 @@ class EditProfilePageState extends State<EditProfilePage> {
                     obscureText: false,
                     focusedBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: AppColors.tahitiGold,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: AppColors.snow,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     hintText: AppStrings.userName,
                     textColorHint: AppColors.hintTextColor,
                     fontSizeHint: 14.0,
@@ -266,42 +265,42 @@ class EditProfilePageState extends State<EditProfilePage> {
                   CustomTextFormField(
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.start,
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w600,
                     textColor: Colors.black,
                     horizontal: 20.0,
                     vertical: 12.0,
-                    bottom: 12.0,
+                    bottom: 8.0,
                     errorFontSize: 11.0,
                     errorTextColor: Colors.red,
                     focusedErrorBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: Colors.red,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     errorBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: Colors.red,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     textInputAction: TextInputAction.next,
                     iconSize: 25.0,
                     textInputType: TextInputType.emailAddress,
                     obscureText: false,
                     focusedBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: AppColors.tahitiGold,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: AppColors.snow,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     hintText: AppStrings.emailAddress,
                     textColorHint: AppColors.hintTextColor,
                     fontSizeHint: 14.0,
@@ -311,47 +310,47 @@ class EditProfilePageState extends State<EditProfilePage> {
                     suffixIcon: Icons.email_outlined,
                   ),
                   SizedBox(
-                    height: ScreenUtil().setHeight(15),
+                    height: ScreenUtil().setHeight(15.h),
                   ),
                   CustomTextFormField(
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.start,
-                    fontSize: 12,
+                    fontSize: 10,
                     fontWeight: FontWeight.w600,
                     textColor: Colors.black,
                     horizontal: 20.0,
                     vertical: 12.0,
-                    bottom: 12.0,
+                    bottom: 8.0,
                     errorFontSize: 11.0,
                     errorTextColor: Colors.red,
                     focusedErrorBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: Colors.red,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     errorBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: Colors.red,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     textInputAction: TextInputAction.done,
                     iconSize: 25.0,
                     textInputType: TextInputType.number,
                     obscureText: false,
                     focusedBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: AppColors.tahitiGold,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     enabledBorder: OutlineInputBorder(
                         borderRadius:
-                            BorderRadius.circular(ScreenUtil().radius(30)),
+                            BorderRadius.circular(ScreenUtil().radius(30.r)),
                         borderSide: BorderSide(
                             color: AppColors.snow,
-                            width: ScreenUtil().setWidth(1))),
+                            width: ScreenUtil().setWidth(1.w))),
                     hintText: AppStrings.phoneNmeber,
                     textColorHint: AppColors.hintTextColor,
                     fontSizeHint: 14.0,
@@ -361,7 +360,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                     suffixIcon: Icons.phone_outlined,
                   ),
                   SizedBox(
-                    height: ScreenUtil().setHeight(50),
+                    height: ScreenUtil().setHeight(50.h),
                   ),
                   FormSubmitButton(
                     onPressed: () {
@@ -375,41 +374,41 @@ class EditProfilePageState extends State<EditProfilePage> {
                     },
                     formKey: formKey,
                     buttonName: AppStrings.updateProfile,
-                    fontSize: 13,
+                    fontSize: 10,
                     fontWeight: FontWeight.w700,
                     textColor: Colors.white,
                     textAlign: TextAlign.center,
                     shapeBorder: RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.circular(ScreenUtil().radius(30)),
+                          BorderRadius.circular(ScreenUtil().radius(30.r)),
                     ),
                     background: AppColors.tahitiGold,
                     elevation: 0,
                     width: double.infinity,
-                    height: 40,
+                    height: 35,
                   ),
                   SizedBox(
-                    height: ScreenUtil().setHeight(10),
+                    height: ScreenUtil().setHeight(10.h),
                   ),
                   CustomButton(
                       routeName: "profile",
                       buttonName: AppStrings.cancel,
-                      fontSize: 13,
+                      fontSize: 10,
                       fontWeight: FontWeight.w700,
                       textColor: Colors.black,
                       textAlign: TextAlign.center,
                       shapeBorder: RoundedRectangleBorder(
                           borderRadius:
-                              BorderRadius.circular(ScreenUtil().radius(30)),
+                              BorderRadius.circular(ScreenUtil().radius(30.r)),
                           side: BorderSide(
                               color: AppColors.tahitiGold,
-                              width: ScreenUtil().setWidth(1))),
+                              width: ScreenUtil().setWidth(1.w))),
                       elevation: 0,
                       background: Colors.white,
-                      height: 40,
+                      height: 35,
                       width: double.infinity),
                   SizedBox(
-                    height: ScreenUtil().setHeight(20),
+                    height: ScreenUtil().setHeight(20.h),
                   )
                 ],
               ),

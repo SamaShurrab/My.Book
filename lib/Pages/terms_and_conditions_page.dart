@@ -80,8 +80,8 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                   child: Padding(
                     padding: EdgeInsets.all(20),
                     child: CustomImageSvg(
-                        height: 110,
-                        width: 110,
+                        height: 100,
+                        width: 100,
                         imagePath: 'images/logo.svg',
                         imageColor: Colors.white),
                   ),
@@ -90,34 +90,34 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                     flex: 7,
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                          horizontal: ScreenUtil().setWidth(20)),
+                          horizontal: ScreenUtil().setWidth(15.w)),
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topRight:
-                                  Radius.circular(ScreenUtil().radius(20)),
+                                  Radius.circular(ScreenUtil().radius(20.r)),
                               topLeft:
-                                  Radius.circular(ScreenUtil().radius(20)))),
+                                  Radius.circular(ScreenUtil().radius(20.r)))),
                       child: ListView(
                         children: [
                           CustomText(
                               text: AppStrings.termsAndConditions,
                               textAlign: TextAlign.start,
-                              fontSize: 16,
+                              fontSize: 13,
                               textColor: Colors.black,
                               fontWeight: FontWeight.w700),
                           SizedBox(
-                            height: ScreenUtil().setHeight(8),
+                            height: ScreenUtil().setHeight(8.h),
                           ),
                           CustomText(
                               text: AppStrings.introduction,
                               textAlign: TextAlign.start,
-                              fontSize: 12,
+                              fontSize: 10,
                               textColor: Colors.black,
                               fontWeight: FontWeight.w500),
                           SizedBox(
-                            height: ScreenUtil().setHeight(20),
+                            height: ScreenUtil().setHeight(10.h),
                           ),
                           ListView.builder(
                             physics: NeverScrollableScrollPhysics(),
@@ -134,9 +134,10 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                       color: AppColors.tahitiGold,
                                       child: Padding(
                                         padding: EdgeInsets.symmetric(
-                                            vertical: ScreenUtil().setHeight(5),
+                                            vertical:
+                                                ScreenUtil().setHeight(2.h),
                                             horizontal:
-                                                ScreenUtil().setWidth(10)),
+                                                ScreenUtil().setWidth(10.w)),
                                         child: Row(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
@@ -147,7 +148,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                                   text:
                                                       "${termsList[i]["titleTerm"]}",
                                                   textAlign: TextAlign.start,
-                                                  fontSize: 13,
+                                                  fontSize: 10,
                                                   textColor: Colors.white,
                                                   fontWeight: FontWeight.w600),
                                             ),
@@ -198,7 +199,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                               text:
                                                   "${termsList[i]["descriptionTerm"]}",
                                               textAlign: TextAlign.start,
-                                              fontSize: 13,
+                                              fontSize: 10,
                                               textColor: Colors.black,
                                               fontWeight: FontWeight.w500),
                                         ),
@@ -227,7 +228,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
           title: CustomText(
               text: AppStrings.termsAndConditions,
               textAlign: TextAlign.center,
-              fontSize: 16,
+              fontSize: 13,
               textColor: Colors.black,
               fontWeight: FontWeight.w700),
           leading: InkWell(
@@ -236,27 +237,31 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                 Navigator.of(context).pop();
               },
               child: Icon(
-                Icons.chevron_left_rounded,
-                size: 35,
+                Icons.arrow_back_ios_new,
+                size: 25,
                 color: Colors.black,
               )),
         ),
         body: Container(
           margin: EdgeInsets.symmetric(
-              horizontal: ScreenUtil().setWidth(10),
-              vertical: ScreenUtil().setHeight(10)),
+              horizontal: ScreenUtil().setWidth(10.w),
+              vertical: ScreenUtil().setHeight(10.w)),
           child: Column(
             children: [
               Expanded(
+                flex: 1,
                 child: CustomText(
                     text: AppStrings.introduction,
                     textAlign: TextAlign.center,
-                    fontSize: 13,
+                    fontSize: 10,
                     textColor: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
+              SizedBox(
+                height: ScreenUtil().setHeight(5.h),
+              ),
               Expanded(
-                flex: 4,
+                flex: 5,
                 child: ListView.builder(
                   itemCount: termsList.length,
                   itemBuilder: (context, i) {
@@ -270,8 +275,8 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                             color: AppColors.tahitiGold,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  vertical: ScreenUtil().setHeight(5),
-                                  horizontal: ScreenUtil().setWidth(10)),
+                                  vertical: ScreenUtil().setHeight(2.h),
+                                  horizontal: ScreenUtil().setWidth(10.w)),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -280,7 +285,7 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                                     child: CustomText(
                                         text: "${termsList[i]["titleTerm"]}",
                                         textAlign: TextAlign.start,
-                                        fontSize: 13,
+                                        fontSize: 10,
                                         textColor: Colors.white,
                                         fontWeight: FontWeight.w600),
                                   ),
@@ -312,18 +317,18 @@ class TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                         if (isExpandedList[i])
                           Container(
                             margin: EdgeInsets.symmetric(
-                                horizontal: ScreenUtil().setWidth(10)),
+                                horizontal: ScreenUtil().setWidth(10.w)),
                             width: double.infinity,
                             child: Card(
                               color: Colors.white,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                    vertical: ScreenUtil().setHeight(10),
-                                    horizontal: ScreenUtil().setWidth(10)),
+                                    vertical: ScreenUtil().setHeight(10.h),
+                                    horizontal: ScreenUtil().setWidth(10.w)),
                                 child: CustomText(
                                     text: "${termsList[i]["descriptionTerm"]}",
                                     textAlign: TextAlign.start,
-                                    fontSize: 13,
+                                    fontSize: 10,
                                     textColor: Colors.black,
                                     fontWeight: FontWeight.w500),
                               ),

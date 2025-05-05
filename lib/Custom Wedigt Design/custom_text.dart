@@ -24,7 +24,7 @@ class CustomText extends StatelessWidget {
       textAlign: textAlign,
       style: TextStyle(
         height: height,
-        fontSize: ScreenUtil().setSp(fontSize),
+        fontSize: ScreenUtil().setSp(fontSize.sp),
         color: textColor,
         fontWeight: fontWeight,
       ),
