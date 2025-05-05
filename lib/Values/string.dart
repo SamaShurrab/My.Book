@@ -190,4 +190,9 @@ class AppStrings {
 
   // Archives Page
   static const String archives = "Archives";
+
+  // Purchased Dialog
+  static const String addDone = "The book has been added to the cart";
+  static const String continueShopping = "Continue Shopping";
+  static const String viewOrder = "View Order";
 }//AppStrings class

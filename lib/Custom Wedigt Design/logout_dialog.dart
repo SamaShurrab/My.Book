@@ -8,7 +8,7 @@ import 'package:my_book_app/Values/string.dart';
 // This class is for designing a dialog for logging out of the application.
 class LogoutDialog {
   static Future<void> show(BuildContext context) {
-    return showDialog<bool>(
+    return showDialog(
       barrierDismissible: false,
       context: context,
       builder: (context) {

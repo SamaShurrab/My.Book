@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/asset_image_widget.dart';
+import 'package:my_book_app/Custom%20Wedigt%20Design/confirm_add_book_dialog.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/create_route.dart';
 import 'package:my_book_app/Custom%20Wedigt%20Design/custom_drawer.dart';
 import 'package:my_book_app/Pages/profile_page.dart';
@@ -152,7 +153,14 @@ class BookDetailsPage extends StatelessWidget {
                               height: ScreenUtil().setHeight(20.h),
                             ),
                             CustomButton(
-                              routeName: "shoppingCart",
+                              onPressed: () {
+                                showDialog(
+                                    barrierDismissible: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return ConfirmAddBookDialog();
+                                    });
+                              },
                               buttonName: AppStrings.buyNow,
                               fontSize: 10,
                               fontWeight: FontWeight.w600,
