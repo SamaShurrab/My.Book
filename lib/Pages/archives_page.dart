@@ -44,7 +44,7 @@ class ArchivesPageState extends State<ArchivesPage> {
         shrinkWrap: false,
         scrollDirection: Axis.vertical,
         crossAxisCount: 2,
-        mainAxisExtent: 300,
+        mainAxisExtent: 310,
         crossAxisSpacing: 0,
         mainAxisSpacing: 0,
       ),

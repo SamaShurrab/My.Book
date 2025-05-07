@@ -217,11 +217,11 @@ class HomePageState extends State<HomePage> {
                                   )
                                 : index == 3
                                     ? Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal:
-                                                ScreenUtil().setWidth(10.w),
-                                            vertical:
-                                                ScreenUtil().setHeight(10.h)),
+                                        padding: EdgeInsets.only(
+                                          left: ScreenUtil().setWidth(10.w),
+                                          right: ScreenUtil().setWidth(10.w),
+                                          bottom: ScreenUtil().setHeight(10.h),
+                                        ),
                                         child: CustomText(
                                             text: AppStrings.newReleases,
                                             textAlign: TextAlign.start,
@@ -236,13 +236,13 @@ class HomePageState extends State<HomePage> {
                                         child: BookInformation(
                                           bookKey: booksListKey,
                                           pageName: "home",
-                                          height: 200,
+                                          height: 210,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.horizontal,
                                           crossAxisCount: 1,
-                                          mainAxisExtent: 150,
+                                          mainAxisExtent: 160,
                                           crossAxisSpacing: 0,
-                                          mainAxisSpacing: 15,
+                                          mainAxisSpacing: 5,
                                         ),
                                       );
                   },

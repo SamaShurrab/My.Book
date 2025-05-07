@@ -53,7 +53,7 @@ class ChooseInterestPageState extends State<ChooseInterestPage> {
           margin: EdgeInsets.symmetric(
               horizontal: ScreenUtil().setWidth(20.w),
               vertical: ScreenUtil().setHeight(5.h)),
-          child: Column(
+          child: ListView(
             children: [
               Center(
                 child: CustomText(
@@ -67,6 +67,7 @@ class ChooseInterestPageState extends State<ChooseInterestPage> {
                 height: ScreenUtil().setHeight(10.h),
               ),
               GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: topicsList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

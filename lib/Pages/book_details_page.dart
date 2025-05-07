@@ -32,6 +32,7 @@ class BookDetailsPage extends StatelessWidget {
       child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: AppBar(
+            surfaceTintColor: Colors.transparent,
             actions: [
               InkWell(
                   splashColor: Colors.transparent,

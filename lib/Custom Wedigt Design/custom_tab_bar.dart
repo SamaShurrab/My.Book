@@ -21,7 +21,7 @@ class CustomTabBar extends StatelessWidget {
     return DefaultTabController(
         length: tabItem.length,
         child: SizedBox(
-          height: ScreenUtil().setHeight(243.h),
+          height: ScreenUtil().setHeight(240.h),
           width: ScreenUtil().setWidth(double.infinity),
           child: Column(
             children: [
@@ -39,13 +39,13 @@ class CustomTabBar extends StatelessWidget {
                     padding: EdgeInsets.only(top: ScreenUtil().setHeight(5.h)),
                     child: BookInformation(
                       pageName: "home",
-                      height: 200,
+                      height: 210,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       crossAxisCount: 1,
-                      mainAxisExtent: 150,
+                      mainAxisExtent: 160,
                       crossAxisSpacing: 0,
-                      mainAxisSpacing: 15,
+                      mainAxisSpacing: 5,
                     ),
                   )
               ]))

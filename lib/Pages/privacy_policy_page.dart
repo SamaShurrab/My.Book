@@ -108,7 +108,7 @@ class PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Expanded(
-                                    flex: 7,
+                                    flex: 5,
                                     child: CustomText(
                                         text:
                                             "${privacyList[index]["privacyTitle"]}",

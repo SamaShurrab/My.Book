@@ -170,8 +170,8 @@ class BookInformationState extends State<BookInformation> {
                       child: AssetImageWidget(
                         imagePath: filteredBook[index].bookImage,
                         fit: BoxFit.fill,
-                        width: 130.w,
-                        height: 185.h,
+                        width: 120.w,
+                        height: 180.h,
                       ),
                     ),
                   ),
@@ -180,7 +180,7 @@ class BookInformationState extends State<BookInformation> {
                       top: 10,
                       child: Container(
                         width: ScreenUtil().setWidth(20.w),
-                        height: ScreenUtil().setHeight(23.h),
+                        height: ScreenUtil().setHeight(25.h),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(
@@ -210,14 +210,11 @@ class BookInformationState extends State<BookInformation> {
                               });
                             },
                             child: Icon(
-                              filteredBook[index].isSaved
-                                  ? Icons.bookmark
-                                  : Icons.bookmark_border_outlined,
-                              size: 25,
-                              color: filteredBook[index].isSaved
-                                  ? Colors.black
-                                  : Colors.black,
-                            )),
+                                filteredBook[index].isSaved
+                                    ? Icons.bookmark
+                                    : Icons.bookmark_border_outlined,
+                                size: 30,
+                                color: Colors.black)),
                       ))
                 ],
               ),

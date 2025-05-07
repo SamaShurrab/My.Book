@@ -87,7 +87,7 @@ class WishlistPageState extends State<WishlistPage> {
                 shrinkWrap: false,
                 scrollDirection: Axis.vertical,
                 crossAxisCount: 2,
-                mainAxisExtent: 300,
+                mainAxisExtent: 280,
                 crossAxisSpacing: 0,
                 mainAxisSpacing: 0,
               ))),

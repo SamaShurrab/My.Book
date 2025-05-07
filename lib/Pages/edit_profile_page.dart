@@ -75,13 +75,13 @@ class EditProfilePageState extends State<EditProfilePage> {
           children: [
             imagePath != null
                 ? CircleAvatar(
-                    radius: ScreenUtil().radius(60.r),
+                    radius: ScreenUtil().radius(50.r),
                     backgroundColor: Colors.grey[300],
                     child: ClipOval(
                       child: Image.file(
                         imagePath!,
-                        width: ScreenUtil().setWidth(100.w),
-                        height: ScreenUtil().setHeight(110.h),
+                        width: ScreenUtil().setWidth(80.w),
+                        height: ScreenUtil().setHeight(90.h),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -360,7 +360,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                     suffixIcon: Icons.phone_outlined,
                   ),
                   SizedBox(
-                    height: ScreenUtil().setHeight(50.h),
+                    height: ScreenUtil().setHeight(40.h),
                   ),
                   FormSubmitButton(
                     onPressed: () {
